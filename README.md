@@ -1,5 +1,5 @@
-# crccalculator
-Xojo example project: CRCCalculator *(Cyclic Redundancy Check: CRC8, CRC16, CRC32)*
+# CRCCalculator | Xojo example project
+ Cyclic Redundancy Check: CRC8, CRC16, CRC32
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
@@ -42,6 +42,6 @@ Jürg Otter is a long term user of Xojo and working for [CM Informatik AG](https
 
 ### Donation
 Do you like this project? Does it help you? Has it saved you time and money?  
-You're welcome - it's free... If you want to say thanks I'd appreciate a message or a small donation via PayPal.  
+You're welcome - it's free... If you want to say thanks I'd appreciate a [message](mailto:xojo@jo-tools.ch) or a small [donation via PayPal](https://paypal.me/jotools).  
 
 [![PayPal Dontation to jotools](https://img.shields.io/static/v1?style=social&logo=paypal&label=PayPal&message=jotools)](https://paypal.me/jotools)
