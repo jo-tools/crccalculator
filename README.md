@@ -44,4 +44,4 @@ Jürg Otter is a long term user of Xojo and working for [CM Informatik AG](https
 Do you like this project? Does it help you? Has it saved you time and money?  
 You're welcome - it's free... If you want to say thanks I'd appreciate a message or a small donation via PayPal.  
 
-[![PayPal Dontation to jotools](https://img.shields.io/static/v1?style=social&logo=paypal&label=Facebook&message=jotools)](https://paypal.me/jotools)
+[![PayPal Dontation to jotools](https://img.shields.io/static/v1?style=social&logo=paypal&label=PayPal&message=jotools)](https://paypal.me/jotools)
