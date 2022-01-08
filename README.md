@@ -1,5 +1,6 @@
-# CRCCalculator | Xojo example project
- Cyclic Redundancy Check: CRC8, CRC16, CRC32
+# CRCCalculator
+**Xojo example project**  
+Cyclic Redundancy Check: CRC8, CRC16, CRC32
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
