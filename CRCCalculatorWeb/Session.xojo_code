@@ -7,6 +7,41 @@ Inherits WebSession
   confirmmessage=
   AllowTabOrderWrap=True
 #tag EndSession
+	#tag Event
+		Sub Closing(appQuitting as Boolean)
+		  #Pragma unused appQuitting
+		  
+		  If App.StageCode < 3 Then 'Not a Final Build
+		    System.DebugLog("Session: Closing")
+		  End If
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub Opening()
+		  If App.StageCode < 3 Then 'Not a Final Build
+		    System.DebugLog("Session: Opening")
+		  End If
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub UserDisconnected()
+		  If App.StageCode < 3 Then 'Not a Final Build
+		    System.DebugLog("Session: UserDisconnected")
+		  End If
+		End Sub
+	#tag EndEvent
+
+	#tag Event
+		Sub UserTimedOut()
+		  If App.StageCode < 3 Then 'Not a Final Build
+		    System.DebugLog("Session: UserTimedOut")
+		  End If
+		End Sub
+	#tag EndEvent
+
+
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Index"
