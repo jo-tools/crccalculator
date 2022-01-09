@@ -308,6 +308,7 @@ Begin Window Window1
       SelectionType   =   0
       TabIndex        =   8
       TabPanelIndex   =   0
+      TabStop         =   True
       Top             =   180
       Transparent     =   False
       Visible         =   True
@@ -754,6 +755,8 @@ End
 	#tag EndEvent
 	#tag Event
 		Function CellBackgroundPaint(g As Graphics, row As Integer, column As Integer) As Boolean
+		  #pragma unused column
+		  
 		  Dim oBGColor As Color
 		  
 		  if me.Selected(row) then
@@ -785,6 +788,10 @@ End
 	#tag EndEvent
 	#tag Event
 		Function CellTextPaint(g As Graphics, row As Integer, column As Integer, x as Integer, y as Integer) As Boolean
+		  #pragma unused X
+		  #pragma unused Y
+		  #pragma unused row
+		  
 		  g.Bold = (column <= 1)
 		  return false 'let Listbox handle the actual drawing
 		End Function
@@ -800,6 +807,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #pragma unused X
+		  #pragma unused Y
+		  
 		  return true
 		End Function
 	#tag EndEvent
@@ -853,6 +863,8 @@ End
 #tag Events cnvAppIcon
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  #pragma unused areas
+		  
 		  g.DrawPicture(AppIcon_128, 0, 0, 64, 64, 0, 0, AppIcon_128.Width, AppIcon_128.Height)
 		End Sub
 	#tag EndEvent
@@ -865,6 +877,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #pragma unused X
+		  #pragma unused Y
+		  
 		  return true
 		End Function
 	#tag EndEvent
@@ -897,6 +912,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #pragma unused X
+		  #pragma unused Y
+		  
 		  return true
 		End Function
 	#tag EndEvent
@@ -938,6 +956,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #pragma unused X
+		  #pragma unused Y
+		  
 		  return true
 		End Function
 	#tag EndEvent
@@ -952,6 +973,8 @@ End
 #tag Events cnvPayPal
 	#tag Event
 		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		  #pragma unused areas
+		  
 		  g.ForeColor = &cFFFFFF
 		  #if (XojoVersion >= 2018.03) then
 		    if IsDarkMode then g.ForeColor = &cD0D0D0
@@ -982,6 +1005,9 @@ End
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		  #pragma unused X
+		  #pragma unused Y
+		  
 		  return true
 		End Function
 	#tag EndEvent
