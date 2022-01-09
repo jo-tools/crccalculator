@@ -1,5 +1,5 @@
 # CRCCalculator
-**Xojo example project**  
+**Xojo example projects (API1 & API2)**  
 Cyclic Redundancy Check: CRC8, CRC16, CRC32
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
@@ -19,9 +19,14 @@ Built Desktop application running on macOS:
 ## Xojo
 ### Requirements
 [Xojo](https://www.xojo.com/) is a rapid application development for Desktop, Web, Mobile & Raspberry Pi.  
-This Xojo project is using:
+
+The Desktop application Xojo example project ```CRCCalculatorDesktop.xojo_project``` is using:
 - Xojo 2018r4
 - API 1
+
+The Web application Xojo example project ```CRCCalculatorWeb.xojo_project``` is using:
+- Xojo 2021r3.1
+- API 2
 
 ### How to use in your own Xojo project?
 1. Copy/paste the required CRC Calculator Classes into your project
