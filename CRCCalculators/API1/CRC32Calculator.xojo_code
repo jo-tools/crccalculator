@@ -95,7 +95,7 @@ Protected Class CRC32Calculator
 		    return New CRC32Calculator("CRC-32/XFER", &h000000AF, &h00000000, false, false, &h00000000)
 		    
 		  end select
-		   
+		  
 		  return nil
 		End Function
 	#tag EndMethod
