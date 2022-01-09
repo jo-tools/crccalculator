@@ -12,9 +12,12 @@ Because CRC classes not available in the Xojo Framework, one has to either use a
 This example is based on this documentation: [Understanding CRC](http://www.sunshine2k.de/articles/coding/crc/understanding_crc.html).  
 That article is also included as a [PDF](./docs/Understanding_CRC.pdf).
 
-### ScreenShot
+### ScreenShots
 Built Desktop application running on macOS:  
-![ScreenShot: CRC16Calculator](screenshots/CRC16Calculator.png?raw=true)
+![ScreenShot: CRC16CalculatorDesktop](screenshots/CRC16Calculator.png?raw=true)
+
+Built Web application running on macOS:  
+![ScreenShot: CRC16CalculatorWeb](screenshots/CRCCalculatorWeb.png?raw=true)
 
 ## Xojo
 ### Requirements
@@ -37,7 +40,7 @@ The Web application Xojo example project ```CRCCalculatorWeb.xojo_project``` is 
 
 
 ## About
-Jürg Otter is a long term user of Xojo and working for [CM Informatik AG](https://cmiag.ch/). Their Application [CMI LehrerOffice](https://cmi-bildung.ch/) is a Xojo Design Award Winner 2018. In his leisure time Jürg provides some [bits and pieces for Xojo Developers](https://www.jo-tools.ch/).
+Juerg Otter is a long term user of Xojo and working for [CM Informatik AG](https://cmiag.ch/). Their Application [CMI LehrerOffice](https://cmi-bildung.ch/) is a Xojo Design Award Winner 2018. In his leisure time Juerg provides some [bits and pieces for Xojo Developers](https://www.jo-tools.ch/).
 
 ### Contact
 [![E-Mail](https://img.shields.io/static/v1?style=social&label=E-Mail&message=xojo@jo-tools.ch)](mailto:xojo@jo-tools.ch)
