@@ -2,7 +2,7 @@
 **Xojo example projects (API1 & API2)**  
 Cyclic Redundancy Check: CRC8, CRC16, CRC32
 
-![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ## Description
 This example Xojo project shows how CRC Calculations can be implemented in pure Xojo Code.
