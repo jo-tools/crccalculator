@@ -1,9 +1,37 @@
 #tag BuildAutomation
 			Begin BuildStepList Linux
+				Begin IDEScriptBuildStep EnableWebBuildDockerImage , AppliesTo = 0, Architecture = 0
+					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
+					'Xojo 2018r4 can't compile the Post Build Script (API2) which builds a DockerImage for the Web 2 Project.
+					'So make sure it's only being activated when needed:
+					'- Only when Building the CRCCalculatorWeb project
+					'- Only when Building with Xojo 2021r3 (and newer)
+					
+					if XojoVersion < 2021.03 then
+					if PropertyValue("WebBuildDockerImage.Applies to") <> "3" then
+					PropertyValue("WebBuildDockerImage.Applies to") = "3" 'None
+					end if
+					return
+					end if
+					
+					if (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") then return
+					
+					
+					if PropertyValue("WebBuildDockerImage.Applies to") <> "2" then
+					PropertyValue("WebBuildDockerImage.Applies to") = "2" 'Release
+					end if
+				End
 				Begin BuildProjectStep Build
 				End
-				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 2, Architecture = 1
+				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 3, Architecture = 1
+					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
+					'So make sure this script is only being run when needed:
 					if (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") then return
+					
+					'Reset, so that saving the project has our desired default setting
+					if PropertyValue("WebBuildDockerImage.Applies to") <> "3" then
+					PropertyValue("WebBuildDockerImage.Applies to") = "3" 'None
+					end if
 					
 					'*************************************************************
 					'Xojo Web App 2 Docker - How to use with your Xojo-built .app?
