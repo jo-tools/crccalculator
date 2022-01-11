@@ -80,7 +80,7 @@ Begin WebPage WebPageCRCCalculator
       TabIndex        =   1
       Text            =   "CRC Calculator"
       TextAlignment   =   0
-      TextColor       =   &c2D2CE100
+      TextColor       =   &c0F212D00
       Tooltip         =   ""
       Top             =   20
       Underline       =   False
