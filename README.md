@@ -16,6 +16,9 @@ That article is also included as a [PDF](./docs/Understanding_CRC.pdf).
 Built Desktop application running on macOS:  
 ![ScreenShot: CRC16CalculatorDesktop](screenshots/CRC16Calculator.png?raw=true)
 
+Built Desktop application running on Windows:  
+![ScreenShot: CRC16CalculatorDesktop](screenshots/CRC32Calculator.png?raw=true)
+
 Built Web application running on macOS:  
 ![ScreenShot: CRC16CalculatorWeb](screenshots/CRCCalculatorWeb.png?raw=true)
 
