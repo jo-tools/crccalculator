@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ## Documentation
-This [repository](../../..) contains [Documentation](Xojo2Docker.pdf) about [how to package a Xojo built Web Application in a Docker Image](Xojo2Docker.pdf). The Web application Xojo example project ```CRCCalculatorWeb.xojo_project``` includes a Post Build Script which automates the task of building the Docker Image of the web application.
+This repository contains [Documentation](Xojo2Docker.pdf) about [how to package a Xojo built Web Application in a Docker Image](Xojo2Docker.pdf). The Web application Xojo example project ```CRCCalculatorWeb.xojo_project``` includes a Post Build Script which automates the task of building the Docker Image of the web application.
 
 The article has also been posted as a [Xojo Guest Blog Post: Running Xojo Web Applications in Docker](https://blog.xojo.com/2021/05/17/running-xojo-web-applications-in-docker/).
 
