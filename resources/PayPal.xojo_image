@@ -1,0 +1,43 @@
+#tag MultiImage
+Image PayPal
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGSAAAAAAGSAAIAAAtDYWRtaXVtIFNTRAAAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8NUGF5UGFsXzF4LnBuZwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAP////8AAAogY3UAAAAAAAAAAAAAAAAACXJlc291cmNlcwAAAgBNLzpVc2VyczpqdWVyZzpEb2N1bWVudHM6R2l0SHViOmpvLXRvb2xzOmNyY2NhbGN1bGF0b3I6cmVzb3VyY2VzOlBheVBhbF8xeC5wbmcAAA4AHAANAFAAYQB5AFAAYQBsAF8AMQB4AC4AcABuAGcADwAYAAsAQwBhAGQAbQBpAHUAbQAgAFMAUwBEABIAS1VzZXJzL2p1ZXJnL0RvY3VtZW50cy9HaXRIdWIvam8tdG9vbHMvY3JjY2FsY3VsYXRvci9yZXNvdXJjZXMvUGF5UGFsXzF4LnBuZwAAEwABLwAAFQACAAz//wAAAAAAAAAA
+		FullPath = /Users/juerg/Documents/GitHub/jo-tools/crccalculator/resources/PayPal_1x.png
+		PartialPath = resources\PayPal_1x.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 100.00
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = 26.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGSAAAAAAGSAAIAAAtDYWRtaXVtIFNTRAAAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8NUGF5UGFsXzJ4LnBuZwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAP////8AAAogY3UAAAAAAAAAAAAAAAAACXJlc291cmNlcwAAAgBNLzpVc2VyczpqdWVyZzpEb2N1bWVudHM6R2l0SHViOmpvLXRvb2xzOmNyY2NhbGN1bGF0b3I6cmVzb3VyY2VzOlBheVBhbF8yeC5wbmcAAA4AHAANAFAAYQB5AFAAYQBsAF8AMgB4AC4AcABuAGcADwAYAAsAQwBhAGQAbQBpAHUAbQAgAFMAUwBEABIAS1VzZXJzL2p1ZXJnL0RvY3VtZW50cy9HaXRIdWIvam8tdG9vbHMvY3JjY2FsY3VsYXRvci9yZXNvdXJjZXMvUGF5UGFsXzJ4LnBuZwAAEwABLwAAFQACAAz//wAAAAAAAAAA
+		FullPath = /Users/juerg/Documents/GitHub/jo-tools/crccalculator/resources/PayPal_2x.png
+		PartialPath = resources\PayPal_2x.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 100.00
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = 26.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 100.00
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = 26.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

@@ -1,0 +1,43 @@
+#tag MultiImage
+Image AppIcon_128
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGyAAAAAAGyAAIAAAtDYWRtaXVtIFNTRAAAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8VQ1JDQ2FsY3VsYXRvciAxMjgucG5nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAP////8AAAogY3UAAAAAAAAAAAAAAAAACXJlc291cmNlcwAAAgBVLzpVc2VyczpqdWVyZzpEb2N1bWVudHM6R2l0SHViOmpvLXRvb2xzOmNyY2NhbGN1bGF0b3I6cmVzb3VyY2VzOkNSQ0NhbGN1bGF0b3IgMTI4LnBuZwAADgAsABUAQwBSAEMAQwBhAGwAYwB1AGwAYQB0AG8AcgAgADEAMgA4AC4AcABuAGcADwAYAAsAQwBhAGQAbQBpAHUAbQAgAFMAUwBEABIAU1VzZXJzL2p1ZXJnL0RvY3VtZW50cy9HaXRIdWIvam8tdG9vbHMvY3JjY2FsY3VsYXRvci9yZXNvdXJjZXMvQ1JDQ2FsY3VsYXRvciAxMjgucG5nAAATAAEvAAAVAAIADP//AAAAAAAAAAA=
+		FullPath = /Users/juerg/Documents/GitHub/jo-tools/crccalculator/resources/CRCCalculator 128.png
+		PartialPath = resources\CRCCalculator 128.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 128.00
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = 128.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAGyAAAAAAGyAAIAAAtDYWRtaXVtIFNTRAAAAAAAAAAAAAAAAAAAAAAAAAAAQkQAAf////8VQ1JDQ2FsY3VsYXRvciAyNTYucG5nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/////wAAAAAAAAAAAAAAAP////8AAAogY3UAAAAAAAAAAAAAAAAACXJlc291cmNlcwAAAgBVLzpVc2VyczpqdWVyZzpEb2N1bWVudHM6R2l0SHViOmpvLXRvb2xzOmNyY2NhbGN1bGF0b3I6cmVzb3VyY2VzOkNSQ0NhbGN1bGF0b3IgMjU2LnBuZwAADgAsABUAQwBSAEMAQwBhAGwAYwB1AGwAYQB0AG8AcgAgADIANQA2AC4AcABuAGcADwAYAAsAQwBhAGQAbQBpAHUAbQAgAFMAUwBEABIAU1VzZXJzL2p1ZXJnL0RvY3VtZW50cy9HaXRIdWIvam8tdG9vbHMvY3JjY2FsY3VsYXRvci9yZXNvdXJjZXMvQ1JDQ2FsY3VsYXRvciAyNTYucG5nAAATAAEvAAAVAAIADP//AAAAAAAAAAA=
+		FullPath = /Users/juerg/Documents/GitHub/jo-tools/crccalculator/resources/CRCCalculator 256.png
+		PartialPath = resources\CRCCalculator 256.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 128.00
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = 128.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 128.00
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = 128.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage
