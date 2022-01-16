@@ -10,7 +10,7 @@ Because CRC classes not available in the Xojo Framework, one has to either use a
 
 ### Cyclic Redundancy Check Algorithm
 This example is based on this documentation: [Understanding CRC](http://www.sunshine2k.de/articles/coding/crc/understanding_crc.html).  
-That article is also included as a [PDF](./docs/Understanding_CRC.pdf).
+That article is also included as a [PDF](./docs/crc/Understanding_CRC.pdf).
 
 ### ScreenShots
 Built Desktop application running on macOS:  
@@ -41,6 +41,8 @@ The Web application Xojo example project ```CRCCalculatorWeb.xojo_project``` is 
    - or create a custom Calculator: ```New CRC16Calculator("CRC-16/GENIBUS", &h1021, &hffff, false, false, &hffff)```
 3. Get the result: ```myCRCCalculatorInstance.Result("1234567890")```
 
+### Xojo Web App 2 Docker
+This repository contains [Documentation](docs/xojo2docker/Xojo2Docker.pdf) about [how to package a Xojo built Web Application in a Docker Image](docs/xojo2docker/Xojo2Docker.pdf). The Web application Xojo example project ```CRCCalculatorWeb.xojo_project``` includes a Post Build Script which automates the task of building the Docker Image of the web application.
 
 ## About
 Juerg Otter is a long term user of Xojo and working for [CM Informatik AG](https://cmiag.ch/). Their Application [CMI LehrerOffice](https://cmi-bildung.ch/) is a Xojo Design Award Winner 2018. In his leisure time Juerg provides some [bits and pieces for Xojo Developers](https://www.jo-tools.ch/).
