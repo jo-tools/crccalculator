@@ -2,6 +2,7 @@
 Begin WebPage WebPageCRCCalculator
    AllowTabOrderWrap=   True
    Compatibility   =   ""
+   ControlCount    =   0
    ControlID       =   ""
    Enabled         =   False
    Height          =   500
@@ -31,9 +32,10 @@ Begin WebPage WebPageCRCCalculator
    _mPanelIndex    =   -1
    Begin WebImageViewer imgAppIcon
       ControlID       =   ""
+      DisplayMode     =   0
       Enabled         =   True
       Height          =   50
-      HorizontalAlignment=   2
+      Image           =   225335295
       Index           =   -2147483648
       Indicator       =   0
       Left            =   20
@@ -44,14 +46,12 @@ Begin WebPage WebPageCRCCalculator
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
-      Picture         =   225335295
       Scope           =   2
       SVGData         =   ""
       TabIndex        =   0
       Tooltip         =   ""
       Top             =   20
       URL             =   ""
-      VerticalAlignment=   2
       Visible         =   True
       Width           =   50
       _mPanelIndex    =   -1
@@ -80,7 +80,7 @@ Begin WebPage WebPageCRCCalculator
       TabIndex        =   1
       Text            =   "CRC Calculator"
       TextAlignment   =   0
-      TextColor       =   &c0F212D00
+      TextColor       =   colAppLabel
       Tooltip         =   ""
       Top             =   20
       Underline       =   False
@@ -111,7 +111,7 @@ Begin WebPage WebPageCRCCalculator
       TabIndex        =   3
       Text            =   "App Version"
       TextAlignment   =   0
-      TextColor       =   &c00000000
+      TextColor       =   &c000000FF
       Tooltip         =   ""
       Top             =   45
       Underline       =   False
@@ -152,9 +152,10 @@ Begin WebPage WebPageCRCCalculator
    End
    Begin WebImageViewer imgPayPal
       ControlID       =   ""
+      DisplayMode     =   0
       Enabled         =   True
       Height          =   26
-      HorizontalAlignment=   2
+      Image           =   2080811007
       Index           =   -2147483648
       Indicator       =   0
       Left            =   680
@@ -165,14 +166,12 @@ Begin WebPage WebPageCRCCalculator
       LockRight       =   True
       LockTop         =   True
       LockVertical    =   False
-      Picture         =   2080811007
       Scope           =   2
       SVGData         =   ""
       TabIndex        =   5
       Tooltip         =   "#constURL_Paypal"
       Top             =   44
       URL             =   ""
-      VerticalAlignment=   2
       Visible         =   True
       Width           =   100
       _mPanelIndex    =   -1
@@ -201,7 +200,7 @@ Begin WebPage WebPageCRCCalculator
       TabIndex        =   4
       Text            =   "Contact"
       TextAlignment   =   3
-      TextColor       =   &c2C2CE100
+      TextColor       =   colLinkLabel
       Tooltip         =   "#constURL_Contact"
       Top             =   44
       Underline       =   True
@@ -242,7 +241,7 @@ Begin WebPage WebPageCRCCalculator
    Begin WebSegmentedButton segCRCType
       ControlID       =   ""
       Enabled         =   True
-      Height          =   30
+      Height          =   38
       Index           =   -2147483648
       Indicator       =   0
       Left            =   20
@@ -314,7 +313,7 @@ Begin WebPage WebPageCRCCalculator
       TabIndex        =   9
       Text            =   "Output:"
       TextAlignment   =   3
-      TextColor       =   &c00000000
+      TextColor       =   &c000000FF
       Tooltip         =   ""
       Top             =   205
       Underline       =   False
@@ -334,6 +333,8 @@ Begin WebPage WebPageCRCCalculator
       Indicator       =   0
       InitialValue    =   ""
       LastAddedRowIndex=   0
+      LastColumnIndex =   0
+      LastRowIndex    =   0
       Left            =   20
       LockBottom      =   True
       LockedInPosition=   False
@@ -415,18 +416,18 @@ End
 		    Var iRow As Integer = lstResult.LastAddedRowIndex
 		    
 		    If (radOutputType.SelectedIndex = 0) Then
-		      lstResult.CellValueAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellValueAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Poly))
-		      lstResult.CellValueAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Init))
-		      lstResult.CellValueAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.XorOut))
+		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Poly))
+		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Init))
+		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.XorOut))
 		    Else
-		      lstResult.CellValueAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellValueAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Poly))
-		      lstResult.CellValueAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Init))
-		      lstResult.CellValueAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.XorOut))
+		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Poly))
+		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Init))
+		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.XorOut))
 		    End If
-		    lstResult.CellValueAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
-		    lstResult.CellValueAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
+		    lstResult.CellTextAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
+		    lstResult.CellTextAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
 		    
 		  Next
 		End Sub
@@ -450,18 +451,18 @@ End
 		    Var iRow As Integer = lstResult.LastAddedRowIndex
 		    
 		    If (radOutputType.SelectedIndex = 0) Then
-		      lstResult.CellValueAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellValueAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Poly))
-		      lstResult.CellValueAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Init))
-		      lstResult.CellValueAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.XorOut))
+		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Poly))
+		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Init))
+		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.XorOut))
 		    Else
-		      lstResult.CellValueAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellValueAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Poly))
-		      lstResult.CellValueAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Init))
-		      lstResult.CellValueAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.XorOut))
+		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Poly))
+		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Init))
+		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.XorOut))
 		    End If
-		    lstResult.CellValueAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
-		    lstResult.CellValueAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
+		    lstResult.CellTextAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
+		    lstResult.CellTextAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
 		    
 		  Next
 		End Sub
@@ -485,18 +486,18 @@ End
 		    Var iRow As Integer = lstResult.LastAddedRowIndex
 		    
 		    If (radOutputType.SelectedIndex = 0) Then
-		      lstResult.CellValueAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellValueAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Poly))
-		      lstResult.CellValueAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Init))
-		      lstResult.CellValueAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.XorOut))
+		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Poly))
+		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Init))
+		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.XorOut))
 		    Else
-		      lstResult.CellValueAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellValueAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Poly))
-		      lstResult.CellValueAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Init))
-		      lstResult.CellValueAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.XorOut))
+		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Poly))
+		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Init))
+		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.XorOut))
 		    End If
-		    lstResult.CellValueAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
-		    lstResult.CellValueAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
+		    lstResult.CellTextAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
+		    lstResult.CellTextAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
 		    
 		  Next
 		End Sub
@@ -539,7 +540,7 @@ End
 #tag EndEvents
 #tag Events imgPayPal
 	#tag Event
-		Sub Pressed(x as Integer, y as Integer)
+		Sub Pressed(x As Integer, y As Integer)
 		  #Pragma Unused x
 		  #Pragma Unused y
 		  
@@ -568,8 +569,8 @@ End
 #tag EndEvents
 #tag Events segCRCType
 	#tag Event
-		Sub Pressed(itemIndex as Integer)
-		  #Pragma Unused itemIndex
+		Sub Pressed(segmentIndex As Integer)
+		  #Pragma Unused segmentIndex
 		  
 		  Self.ShowResults()
 		  
@@ -577,13 +578,14 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
+		  me.Style.BorderColor = colAppLabel
 		  Me.SelectedSegmentIndex = 1
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events radOutputType
 	#tag Event
-		Sub ValueChanged(button as WebRadioButton)
+		Sub SelectionChanged(button As WebRadioButton)
 		  #Pragma Unused button
 		  
 		  Self.ShowResults()
@@ -613,6 +615,14 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="ControlCount"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="_mPanelIndex"
 		Visible=false

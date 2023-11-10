@@ -10,7 +10,7 @@ Inherits WebApplication
 	#tag EndEvent
 
 	#tag Event
-		Sub Opening(args() as String)
+		Sub Opening(args() As String)
 		  #Pragma unused args
 		  
 		  If App.StageCode < 3 Then 'Not a Final Build
@@ -20,7 +20,7 @@ Inherits WebApplication
 	#tag EndEvent
 
 	#tag Event
-		Sub Stopping(ShuttingDown as Boolean)
+		Sub Stopping(shuttingDown as Boolean)
 		  #Pragma unused ShuttingDown
 		  
 		  If App.StageCode < 3 Then 'Not a Final Build
@@ -30,7 +30,7 @@ Inherits WebApplication
 	#tag EndEvent
 
 	#tag Event
-		Function UnhandledException(Error As RuntimeException) As Boolean
+		Function UnhandledException(error As RuntimeException) As Boolean
 		  If App.StageCode < 3 Then 'Not a Final Build
 		    System.DebugLog("App: UnhandledException - " + Error.Message)
 		  End If

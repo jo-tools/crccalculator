@@ -1,0 +1,9 @@
+#tag ColorGroup
+	CodeName=colLinkLabel
+	#tag Color
+		Type=1
+		Platform=3
+		Light=2C2CE100
+		Dark=0096FF00
+	#tag EndColor
+#tag EndColorGroup
