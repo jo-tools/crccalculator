@@ -6,7 +6,7 @@ Cyclic Redundancy Check: CRC8, CRC16, CRC32
 
 ## Description
 This example Xojo project shows how CRC Calculations can be implemented in pure Xojo Code.
-Because CRC classes not available in the Xojo Framework, one has to either use a 3rd Party Plugin - or calculate the Algorithm(s) manually.
+Because CRC classes are not available in the Xojo Framework, one has to either use a 3rd Party Plugin - or calculate the Algorithm(s) manually.
 
 ### Cyclic Redundancy Check Algorithm
 This example is based on this documentation: [Understanding CRC](http://www.sunshine2k.de/articles/coding/crc/understanding_crc.html).  
@@ -26,24 +26,24 @@ Built Web application running on macOS:
 ### Requirements
 [Xojo](https://www.xojo.com/) is a rapid application development for Desktop, Web, Mobile & Raspberry Pi.  
 
-The Desktop application Xojo example project ```CRCCalculatorDesktop.xojo_project``` is using:
+The Desktop application Xojo example project `CRCCalculatorDesktop.xojo_project` is using:
 - Xojo 2018r4
 - API 1
 
-The Web application Xojo example project ```CRCCalculatorWeb.xojo_project``` is using:
-- Xojo 2021r3.1
+The Web application Xojo example project `CRCCalculatorWeb.xojo_project` is using:
+- Xojo 2023r3
 - API 2
 
 ### How to use in your own Xojo project?
 1. Copy/paste the required CRC Calculator Classes into your project
 2. Create an instance of the Class
-   - by using a predefined Algorithm: ```CRC16Calculator.CreateByType(CRC16Type.MODBUS)```
-   - or create a custom Calculator: ```New CRC16Calculator("CRC-16/GENIBUS", &h1021, &hffff, false, false, &hffff)```
-3. Get the result: ```myCRCCalculatorInstance.Result("1234567890")```
+   - by using a predefined Algorithm: `CRC16Calculator.CreateByType(CRC16Type.MODBUS)`
+   - or create a custom Calculator: `New CRC16Calculator("CRC-16/GENIBUS", &h1021, &hffff, false, false, &hffff)`
+3. Get the result: `myCRCCalculatorInstance.Result("1234567890")`
 
 ### Xojo Web App 2 Docker
 <a name="xojo2docker"></a>
-This repository contains [Documentation](docs/xojo2docker/Xojo2Docker.pdf) about [how to package a Xojo built Web Application in a Docker Image](docs/xojo2docker/Xojo2Docker.pdf). The Web application Xojo example project ```CRCCalculatorWeb.xojo_project``` includes a Post Build Script which automates the task of building the Docker Image of the web application.
+This repository contains [Documentation](docs/xojo2docker/Xojo2Docker.pdf) about [how to package a Xojo built Web Application in a Docker Image](docs/xojo2docker/Xojo2Docker.pdf). The Web application Xojo example project `CRCCalculatorWeb.xojo_project` includes a Post Build Script which automates the task of building the Docker Image of the web application.
 
 ## About
 Juerg Otter is a long term user of Xojo and working for [CM Informatik AG](https://cmiag.ch/). Their Application [CMI LehrerOffice](https://cmi-bildung.ch/) is a Xojo Design Award Winner 2018. In his leisure time Juerg provides some [bits and pieces for Xojo Developers](https://www.jo-tools.ch/).
