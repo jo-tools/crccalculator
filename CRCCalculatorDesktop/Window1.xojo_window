@@ -62,7 +62,7 @@ Begin Window Window1
       TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
-      Text            =   "123456789"
+      Text            =   "Lorem ipsum dolor sit amet."
       TextColor       =   &c00000000
       TextFont        =   "System"
       TextSize        =   0.0
@@ -308,7 +308,6 @@ Begin Window Window1
       SelectionType   =   0
       TabIndex        =   8
       TabPanelIndex   =   0
-      TabStop         =   True
       Top             =   180
       Transparent     =   False
       Visible         =   True

@@ -1,0 +1,9 @@
+#tag ColorGroup
+	CodeName=colAppLabel
+	#tag Color
+		Type=1
+		Platform=3
+		Light=0F212D00
+		Dark=D6D6D600
+	#tag EndColor
+#tag EndColorGroup
