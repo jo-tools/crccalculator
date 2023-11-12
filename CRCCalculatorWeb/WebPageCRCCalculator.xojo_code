@@ -40,7 +40,7 @@ Begin WebPage WebPageCRCCalculator
       Indicator       =   0
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   False
@@ -69,7 +69,7 @@ Begin WebPage WebPageCRCCalculator
       Italic          =   False
       Left            =   100
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   True
@@ -100,7 +100,7 @@ Begin WebPage WebPageCRCCalculator
       Italic          =   False
       Left            =   100
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   True
@@ -131,7 +131,7 @@ Begin WebPage WebPageCRCCalculator
       Italic          =   False
       Left            =   580
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   False
       LockRight       =   True
@@ -160,7 +160,7 @@ Begin WebPage WebPageCRCCalculator
       Indicator       =   0
       Left            =   680
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   False
       LockRight       =   True
@@ -189,7 +189,7 @@ Begin WebPage WebPageCRCCalculator
       Italic          =   False
       Left            =   580
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   False
       LockRight       =   True
@@ -220,7 +220,7 @@ Begin WebPage WebPageCRCCalculator
       Indicator       =   0
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   True
@@ -246,7 +246,7 @@ Begin WebPage WebPageCRCCalculator
       Indicator       =   0
       Left            =   20
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   False
@@ -274,7 +274,7 @@ Begin WebPage WebPageCRCCalculator
       InitialValue    =   "Hex\nDec"
       Left            =   700
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   False
       LockRight       =   True
@@ -302,7 +302,7 @@ Begin WebPage WebPageCRCCalculator
       Italic          =   False
       Left            =   565
       LockBottom      =   False
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   False
       LockRight       =   True
@@ -337,7 +337,7 @@ Begin WebPage WebPageCRCCalculator
       LastRowIndex    =   0
       Left            =   20
       LockBottom      =   True
-      LockedInPosition=   False
+      LockedInPosition=   True
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   True
@@ -563,7 +563,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  Me.Text = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+		  Me.Text = "Lorem ipsum dolor sit amet."
 		End Sub
 	#tag EndEvent
 #tag EndEvents
