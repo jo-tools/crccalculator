@@ -105,11 +105,17 @@
 					
 					
 					'Check Build Target
+					Var sDOCKER_ARCH As String
+					Var sDOCKER_BUILD_MULTIARCH_IMAGE As String = "amd64-arm64v8"
 					Select Case CurrentBuildTarget
 					Case 17
 					'Linux (Intel, 64Bit)
+					sDOCKER_ARCH = "amd64"
+					Case 26
+					'Linux (ARM, 64Bit)
+					sDOCKER_ARCH = "arm64v8"
 					Else
-					Print "The only supported Build Target for the example 'Dockerfile' is: Linux, Intel 64Bit"
+					Print "The only supported Build Targets for the example 'Dockerfile' are: Linux Intel 64Bit, Linux ARM 64Bit"
 					Return
 					End Select
 					
@@ -163,11 +169,13 @@
 					'changing the ShellScript, too.
 					Var sShellArguments() As String
 					
-					'Parameters required to create the .DMG
+					'Parameters required to create the Docker Image
 					sShellArguments.Add(sPROJECT_PATH)
 					sShellArguments.Add(sBUILD_LOCATION)
 					sShellArguments.Add(sBUILD_APPNAME)
 					sShellArguments.Add(sDOCKER_TAG)
+					sShellArguments.Add(sDOCKER_ARCH)
+					sShellArguments.Add(sDOCKER_BUILD_MULTIARCH_IMAGE)
 					sShellArguments.Add(If(bDockerPushEnabled, "yes", "no"))
 					
 					'Make sure the ShellScript is executable:
