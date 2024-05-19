@@ -21,7 +21,7 @@ Begin Window Window1
    MinHeight       =   445
    MinimizeButton  =   True
    MinWidth        =   540
-   Placement       =   0
+   Placement       =   2
    Resizeable      =   True
    Title           =   "CRC Calculator"
    Visible         =   True
@@ -30,7 +30,7 @@ Begin Window Window1
       AcceptTabs      =   False
       Alignment       =   0
       AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   True
+      AutomaticallyCheckSpelling=   False
       BackColor       =   &cFFFFFF00
       Bold            =   False
       Border          =   True

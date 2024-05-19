@@ -31,7 +31,7 @@ The Desktop application Xojo example project `CRCCalculatorDesktop.xojo_project`
 - API 1
 
 The Web application Xojo example project `CRCCalculatorWeb.xojo_project` is using:
-- Xojo 2023r3
+- Xojo 2024r1.1
 - API 2
 
 ### How to use in your own Xojo project?
