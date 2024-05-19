@@ -42,7 +42,7 @@
 					End If
 					
 					'Check Stage Code
-					Var sStageCodeInfo As String
+					Dim sStageCodeInfo As String
 					Select Case PropertyValue("App.StageCode")
 					Case "0" 'Development
 					sStageCodeInfo = "-dev"
@@ -55,7 +55,7 @@
 					End Select
 					
 					'Check Build Target
-					Var sTGZFilename As String
+					Dim sTGZFilename As String
 					Select Case CurrentBuildTarget
 					Case 4 'Linux (Intel, 32Bit)
 					sTGZFilename = "CRCCalculator" + sStageCodeInfo + "_Linux_Intel_32Bit.tgz"
@@ -70,13 +70,13 @@
 					End Select
 					
 					'Xojo Project Settings
-					Var sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
+					Dim sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
 					If Right(sPROJECT_PATH, 1) = "/" Then
 					'no trailing /
 					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
 					End If
-					Var sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
-					Var sBUILD_APPNAME As String = CurrentBuildAppName
+					Dim sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
+					Dim sBUILD_APPNAME As String = CurrentBuildAppName
 					
 					If (sPROJECT_PATH = "") Then
 					Print "Xojo PostBuild Script CreateTGZ requires to get the Environment Variable $PROJECT_PATH from the Xojo IDE." + EndOfLine + EndOfLine + "Unfortunately, it's empty.... try again after re-launching the Xojo IDE and/or rebooting your machine."
@@ -84,10 +84,10 @@
 					End If
 					
 					'Create .tgz
-					Var pathParts As String = sBUILD_LOCATION.Split("/")
-					Var foldernameApp As String = pathParts(pathParts.LastIndex)
-					pathParts.RemoveAt(pathParts.LastIndex)
-					Var baseFolder As String = String.FromArray(pathParts, "/")
+					Dim pathParts() As String = Split(sBUILD_LOCATION, "/")
+					Dim foldernameApp As String = pathParts(pathParts.Ubound)
+					pathParts.Remove(pathParts.Ubound)
+					Dim baseFolder As String = Join(pathParts, "/")
 					
 					Call DoShellCommand("cd """ + baseFolder + """ && tar -c -z -v --no-mac-metadata --no-xattrs -f ../" + sTGZFilename + " ./" + foldernameApp, 0)
 					
@@ -286,7 +286,7 @@
 					End If
 					
 					'Check Stage Code
-					Var sStageCodeInfo As String
+					Dim sStageCodeInfo As String
 					Select Case PropertyValue("App.StageCode")
 					Case "0" 'Development
 					sStageCodeInfo = "-dev"
@@ -299,7 +299,7 @@
 					End Select
 					
 					'Check Build Target
-					Var sZIPFilename As String
+					Dim sZIPFilename As String
 					Select Case CurrentBuildTarget
 					Case 3 'Windows (Intel, 32Bit)
 					sZIPFilename = "CRCCalculator" + sStageCodeInfo + "_Windows_Intel_32Bit.zip"
@@ -312,13 +312,13 @@
 					End Select
 					
 					'Xojo Project Settings
-					Var sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
+					Dim sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
 					If Right(sPROJECT_PATH, 1) = "/" Then
 					'no trailing /
 					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
 					End If
-					Var sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
-					Var sBUILD_APPNAME As String = CurrentBuildAppName
+					Dim sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
+					Dim sBUILD_APPNAME As String = CurrentBuildAppName
 					
 					If (sPROJECT_PATH = "") Then
 					Print "Xojo PostBuild Script CreateZIP requires to get the Environment Variable $PROJECT_PATH from the Xojo IDE." + EndOfLine + EndOfLine + "Unfortunately, it's empty.... try again after re-launching the Xojo IDE and/or rebooting your machine."
@@ -326,10 +326,10 @@
 					End If
 					
 					'Create .zip
-					Var pathParts As String = sBUILD_LOCATION.Split("/")
-					Var foldernameApp As String = pathParts(pathParts.LastIndex)
-					pathParts.RemoveAt(pathParts.LastIndex)
-					Var baseFolder As String = String.FromArray(pathParts, "/")
+					Dim pathParts() As String = Split(sBUILD_LOCATION, "/")
+					Dim foldernameApp As String = pathParts(pathParts.Ubound)
+					pathParts.Remove(pathParts.Ubound)
+					Dim baseFolder As String = Join(pathParts, "/")
 					
 					Call DoShellCommand("cd """ + baseFolder + """ && zip -r ../" + sZIPFilename + " ./" + foldernameApp, 0)
 					
