@@ -7,19 +7,19 @@
 					'- Only when Building the CRCCalculatorWeb project
 					'- Only when Building with Xojo 2021r3 (and newer)
 					
-					if XojoVersion < 2021.03 then
-					if PropertyValue("WebBuildDockerImage.Applies to") <> "3" then
+					If XojoVersion < 2021.03 Then
+					If PropertyValue("WebBuildDockerImage.Applies to") <> "3" Then
 					PropertyValue("WebBuildDockerImage.Applies to") = "3" 'None
-					end if
-					return
-					end if
+					End If
+					Return
+					End If
 					
 					If (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") Then Return
 					
 					
-					if PropertyValue("WebBuildDockerImage.Applies to") <> "2" then
+					If PropertyValue("WebBuildDockerImage.Applies to") <> "2" Then
 					PropertyValue("WebBuildDockerImage.Applies to") = "2" 'Release
-					end if
+					End If
 				End
 				Begin BuildProjectStep Build
 				End
@@ -95,12 +95,12 @@
 				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 3
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
 					'So make sure this script is only being run when needed:
-					if (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") then return
+					If (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") Then Return
 					
 					'Reset, so that saving the project has our desired default setting
-					if PropertyValue("WebBuildDockerImage.Applies to") <> "3" then
+					If PropertyValue("WebBuildDockerImage.Applies to") <> "3" Then
 					PropertyValue("WebBuildDockerImage.Applies to") = "3" 'None
-					end if
+					End If
 					
 					'*************************************************************
 					'Xojo Web App 2 Docker - How to use with your Xojo-built .app?
@@ -236,7 +236,7 @@
 					'
 					'The order is important, so don't change anything here without
 					'changing the ShellScript, too.
-					Var sShellArguments() As String
+					Var sShellArguments As String
 					
 					'Parameters required to create the Docker Image
 					sShellArguments.Add(sPROJECT_PATH)
