@@ -1,6 +1,6 @@
 #tag BuildAutomation
 			Begin BuildStepList Linux
-				Begin IDEScriptBuildStep EnableWebBuildDockerImage , AppliesTo = 0, Architecture = 0
+				Begin IDEScriptBuildStep EnableWebBuildDockerImage , AppliesTo = 0
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
 					'Xojo 2018r4 can't compile the Post Build Script (API2) which builds a DockerImage for the Web 2 Project.
 					'So make sure it's only being activated when needed:
@@ -14,7 +14,7 @@
 					return
 					end if
 					
-					if (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") then return
+					If (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") Then Return
 					
 					
 					if PropertyValue("WebBuildDockerImage.Applies to") <> "2" then
@@ -23,7 +23,76 @@
 				End
 				Begin BuildProjectStep Build
 				End
-				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 3, Architecture = 1
+				Begin IDEScriptBuildStep CreateTGZ , AppliesTo = 0
+					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
+					If (PropertyValue("App.InternalName") <> "CRCCalculator") Then Return
+					
+					'****************************
+					'Create .tgz for Linux Builds
+					'****************************
+					
+					'Post Build Script is for Builds on macOS
+					If (Not TargetMacOS) Then
+					Return
+					End If
+					
+					'Check Build
+					If DebugBuild Then
+					Return
+					End If
+					
+					'Check Stage Code
+					Var sStageCodeInfo As String
+					Select Case PropertyValue("App.StageCode")
+					Case "0" 'Development
+					sStageCodeInfo = "-dev"
+					Case "1" 'Alpha
+					sStageCodeInfo = "-alpha"
+					Case "2" 'Beta
+					sStageCodeInfo = "-beta"
+					Case "3" 'Final
+					'not used in filename
+					End Select
+					
+					'Check Build Target
+					Var sTGZFilename As String
+					Select Case CurrentBuildTarget
+					Case 4 'Linux (Intel, 32Bit)
+					sTGZFilename = "CRCCalculator" + sStageCodeInfo + "_Linux_Intel_32Bit.tgz"
+					Case 17 'Linux (Intel, 64Bit)
+					sTGZFilename = "CRCCalculator" + sStageCodeInfo + "_Linux_Intel_64Bit.tgz"
+					Case 18 'Linux (ARM, 32Bit)
+					sTGZFilename = "CRCCalculator" + sStageCodeInfo + "_Linux_ARM_32Bit.tgz"
+					Case 26 'Linux (ARM, 64Bit)
+					sTGZFilename = "CRCCalculator" + sStageCodeInfo + "_Linux_ARM_64Bit.tgz"
+					Else
+					Return
+					End Select
+					
+					'Xojo Project Settings
+					Var sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
+					If Right(sPROJECT_PATH, 1) = "/" Then
+					'no trailing /
+					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
+					End If
+					Var sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
+					Var sBUILD_APPNAME As String = CurrentBuildAppName
+					
+					If (sPROJECT_PATH = "") Then
+					Print "Xojo PostBuild Script CreateTGZ requires to get the Environment Variable $PROJECT_PATH from the Xojo IDE." + EndOfLine + EndOfLine + "Unfortunately, it's empty.... try again after re-launching the Xojo IDE and/or rebooting your machine."
+					Return
+					End If
+					
+					'Create .tgz
+					Var pathParts As String = sBUILD_LOCATION.Split("/")
+					Var foldernameApp As String = pathParts(pathParts.LastIndex)
+					pathParts.RemoveAt(pathParts.LastIndex)
+					Var baseFolder As String = String.FromArray(pathParts, "/")
+					
+					Call DoShellCommand("cd """ + baseFolder + """ && tar -c -z -v --no-mac-metadata --no-xattrs -f ../" + sTGZFilename + " ./" + foldernameApp, 0)
+					
+				End
+				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 3
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
 					'So make sure this script is only being run when needed:
 					if (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") then return
@@ -197,6 +266,73 @@
 			End
 			Begin BuildStepList Windows
 				Begin BuildProjectStep Build
+				End
+				Begin IDEScriptBuildStep CreateZIP , AppliesTo = 0
+					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
+					If (PropertyValue("App.InternalName") <> "CRCCalculator") Then Return
+					
+					'******************************
+					'Create .zip for Windows Builds
+					'******************************
+					
+					'Post Build Script is for Builds on macOS
+					If (Not TargetMacOS) Then
+					Return
+					End If
+					
+					'Check Build
+					If DebugBuild Then
+					Return
+					End If
+					
+					'Check Stage Code
+					Var sStageCodeInfo As String
+					Select Case PropertyValue("App.StageCode")
+					Case "0" 'Development
+					sStageCodeInfo = "-dev"
+					Case "1" 'Alpha
+					sStageCodeInfo = "-alpha"
+					Case "2" 'Beta
+					sStageCodeInfo = "-beta"
+					Case "3" 'Final
+					'not used in filename
+					End Select
+					
+					'Check Build Target
+					Var sZIPFilename As String
+					Select Case CurrentBuildTarget
+					Case 3 'Windows (Intel, 32Bit)
+					sZIPFilename = "CRCCalculator" + sStageCodeInfo + "_Windows_Intel_32Bit.zip"
+					Case 19 'Windows (Intel, 64Bit)
+					sZIPFilename = "CRCCalculator" + sStageCodeInfo + "_Windows_Intel_64Bit.zip"
+					Case 25 'Windows(ARM, 64Bit)
+					sZIPFilename = "CRCCalculator" + sStageCodeInfo + "_Windows_ARM_64Bit.zip"
+					Else
+					Return
+					End Select
+					
+					'Xojo Project Settings
+					Var sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
+					If Right(sPROJECT_PATH, 1) = "/" Then
+					'no trailing /
+					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
+					End If
+					Var sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
+					Var sBUILD_APPNAME As String = CurrentBuildAppName
+					
+					If (sPROJECT_PATH = "") Then
+					Print "Xojo PostBuild Script CreateZIP requires to get the Environment Variable $PROJECT_PATH from the Xojo IDE." + EndOfLine + EndOfLine + "Unfortunately, it's empty.... try again after re-launching the Xojo IDE and/or rebooting your machine."
+					Return
+					End If
+					
+					'Create .zip
+					Var pathParts As String = sBUILD_LOCATION.Split("/")
+					Var foldernameApp As String = pathParts(pathParts.LastIndex)
+					pathParts.RemoveAt(pathParts.LastIndex)
+					Var baseFolder As String = String.FromArray(pathParts, "/")
+					
+					Call DoShellCommand("cd """ + baseFolder + """ && zip -r ../" + sZIPFilename + " ./" + foldernameApp, 0)
+					
 				End
 			End
 			Begin BuildStepList Xojo Cloud
