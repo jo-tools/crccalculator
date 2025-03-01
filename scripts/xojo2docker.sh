@@ -192,7 +192,6 @@ if [ ! -z "$DOCKER_BUILD_MULTIARCH_IMAGE" ]; then
 			exit 10
 		fi
 
-		DOCKER_TAG_LATEST="$(cut -d':' -f1 <<<'${DOCKER_TAG}')"
 		echo ""
 		echo "Xojo2Docker: [Info] Tag and Push MultiArch 'latest' by executing this command"
 		echo "docker buildx imagetools create -t ${DOCKER_TAG_LATEST} ${DOCKER_TAG}"
