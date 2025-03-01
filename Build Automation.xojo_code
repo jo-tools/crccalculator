@@ -1,6 +1,6 @@
 #tag BuildAutomation
 			Begin BuildStepList Linux
-				Begin IDEScriptBuildStep EnableWebBuildDockerImage , AppliesTo = 0
+				Begin IDEScriptBuildStep EnableWebBuildDockerImage , AppliesTo = 0, Architecture = 0, Target = 0
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
 					'Xojo 2018r4 can't compile the Post Build Script (API2) which builds a DockerImage for the Web 2 Project.
 					'So make sure it's only being activated when needed:
@@ -23,7 +23,7 @@
 				End
 				Begin BuildProjectStep Build
 				End
-				Begin IDEScriptBuildStep CreateTGZ , AppliesTo = 0
+				Begin IDEScriptBuildStep CreateTGZ , AppliesTo = 0, Architecture = 0, Target = 0
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
 					If (PropertyValue("App.InternalName") <> "CRCCalculator") Then Return
 					
@@ -92,7 +92,7 @@
 					Call DoShellCommand("cd """ + baseFolder + """ && tar -c -z -v --no-mac-metadata --no-xattrs -f ../" + sTGZFilename + " ./" + foldernameApp, 0)
 					
 				End
-				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 3
+				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 3, Architecture = 0, Target = 0
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
 					'So make sure this script is only being run when needed:
 					If (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") Then Return
@@ -142,6 +142,13 @@
 					'**************************************************
 					'Download, install and run Docker.app:
 					'https://docs.docker.com/docker-for-mac/install/
+					'**************************************************
+					'Note: Error creating MultiArch Images
+					'https://github.com/docker/for-win/issues/14011
+					'Try re-setting qemu. Execute this in Terminal:
+					'docker run --rm --privileged multiarch/qemu-user-Static --reset -p yes -c yes 
+					'This should effectively pull multiarch/qemu-user-Static, re-setup qemu-user-Static With :latest
+					'to be properly installed and configured
 					'**************************************************
 					
 					'Configuration
@@ -236,7 +243,7 @@
 					'
 					'The order is important, so don't change anything here without
 					'changing the ShellScript, too.
-					Var sShellArguments As String
+					Var sShellArguments() As String
 					
 					'Parameters required to create the Docker Image
 					sShellArguments.Add(sPROJECT_PATH)
@@ -263,11 +270,14 @@
 			Begin BuildStepList Mac OS X
 				Begin BuildProjectStep Build
 				End
+				Begin SignProjectStep Sign
+				  DeveloperID=
+				End
 			End
 			Begin BuildStepList Windows
 				Begin BuildProjectStep Build
 				End
-				Begin IDEScriptBuildStep CreateZIP , AppliesTo = 0
+				Begin IDEScriptBuildStep CreateZIP , AppliesTo = 0, Architecture = 0, Target = 0
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
 					If (PropertyValue("App.InternalName") <> "CRCCalculator") Then Return
 					

@@ -114,9 +114,16 @@ if [ $? -eq 0 ]; then
 	exit 10
 fi
 
-docker build -t $DOCKER_IMAGE_TAG --build-arg ARCH=$DOCKER_ARCH .
+DOCKER_BUILD_PLATFORM=
+if [ "${DOCKER_ARCH}" = "arm64v8" ]; then
+	DOCKER_BUILD_PLATFORM="--platform=linux/arm64/v8"
+elif [ "${DOCKER_ARCH}" = "amd64" ]; then
+	DOCKER_BUILD_PLATFORM="--platform=linux/amd64"
+fi
+
+docker build --no-cache $DOCKER_BUILD_PLATFORM -t $DOCKER_IMAGE_TAG --build-arg ARCH=$DOCKER_ARCH .
 if [ $? -ne 0 ]; then
-	echo "Xojo2Docker ERROR: 'docker build -t $DOCKER_IMAGE_TAG --build-arg ARCH=$DOCKER_ARCH .' failed."
+	echo "Xojo2Docker ERROR: 'docker build --no-cache $DOCKER_BUILD_PLATFORM -t $DOCKER_IMAGE_TAG --build-arg ARCH=$DOCKER_ARCH .' failed."
 	exit 10
 fi
 
