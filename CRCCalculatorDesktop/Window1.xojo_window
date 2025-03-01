@@ -1,50 +1,50 @@
-#tag Window
-Begin Window Window1
-   BackColor       =   &cFFFFFF00
+#tag DesktopWindow
+Begin DesktopWindow Window1
    Backdrop        =   0
-   CloseButton     =   True
-   Compatibility   =   ""
+   BackgroundColor =   &cFFFFFF00
    Composite       =   False
-   Frame           =   0
+   DefaultLocation =   2
    FullScreen      =   False
-   FullScreenButton=   False
-   HasBackColor    =   False
+   HasBackgroundColor=   False
+   HasCloseButton  =   True
+   HasFullScreenButton=   True
+   HasMaximizeButton=   True
+   HasMinimizeButton=   True
    Height          =   445
    ImplicitInstance=   True
-   LiveResize      =   True
    MacProcID       =   0
-   MaxHeight       =   32000
-   MaximizeButton  =   True
-   MaxWidth        =   32000
+   MaximumHeight   =   32000
+   MaximumWidth    =   32000
    MenuBar         =   653176831
    MenuBarVisible  =   True
-   MinHeight       =   445
-   MinimizeButton  =   True
-   MinWidth        =   540
-   Placement       =   2
+   MinimumHeight   =   445
+   MinimumWidth    =   540
    Resizeable      =   True
    Title           =   "CRC Calculator"
+   Type            =   0
    Visible         =   True
    Width           =   540
-   Begin TextArea edtInput
-      AcceptTabs      =   False
-      Alignment       =   0
-      AutoDeactivate  =   True
-      AutomaticallyCheckSpelling=   False
-      BackColor       =   &cFFFFFF00
+   Begin DesktopTextArea edtInput
+      AllowAutoDeactivate=   True
+      AllowFocusRing  =   True
+      AllowSpellChecking=   True
+      AllowStyledText =   True
+      AllowTabs       =   False
+      BackgroundColor =   &cFFFFFF
       Bold            =   False
-      Border          =   True
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Format          =   ""
+      HasBorder       =   True
+      HasHorizontalScrollbar=   False
+      HasVerticalScrollbar=   True
       Height          =   60
-      HelpTag         =   ""
       HideSelection   =   True
       Index           =   -2147483648
       Italic          =   False
       Left            =   20
-      LimitText       =   0
       LineHeight      =   0.0
       LineSpacing     =   1.0
       LockBottom      =   False
@@ -52,49 +52,49 @@ Begin Window Window1
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
-      Mask            =   ""
+      MaximumCharactersAllowed=   0
       Multiline       =   True
       ReadOnly        =   False
       Scope           =   2
-      ScrollbarHorizontal=   False
-      ScrollbarVertical=   True
-      Styled          =   True
       TabIndex        =   7
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Lorem ipsum dolor sit amet."
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   115
       Transparent     =   False
       Underline       =   False
-      UseFocusRing    =   True
+      UnicodeMode     =   0
+      ValidationMask  =   ""
       Visible         =   True
       Width           =   500
    End
-   Begin Listbox lstResult
-      AutoDeactivate  =   True
-      AutoHideScrollbars=   True
+   Begin DesktopListBox lstResult
+      AllowAutoDeactivate=   True
+      AllowAutoHideScrollbars=   True
+      AllowExpandableRows=   False
+      AllowFocusRing  =   True
+      AllowResizableColumns=   False
+      AllowRowDragging=   False
+      AllowRowReordering=   False
       Bold            =   False
-      Border          =   True
       ColumnCount     =   4
-      ColumnsResizable=   False
       ColumnWidths    =   ""
-      DataField       =   ""
-      DataSource      =   ""
       DefaultRowHeight=   -1
+      DropIndicatorVisible=   False
       Enabled         =   True
-      EnableDrag      =   False
-      EnableDragReorder=   False
-      GridLinesHorizontal=   0
-      GridLinesVertical=   0
-      HasHeading      =   False
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
+      GridLineStyle   =   0
+      HasBorder       =   True
+      HasHeader       =   True
+      HasHorizontalScrollbar=   False
+      HasVerticalScrollbar=   True
       HeadingIndex    =   -1
       Height          =   200
-      HelpTag         =   ""
-      Hierarchical    =   False
       Index           =   -2147483648
       InitialParent   =   ""
       InitialValue    =   ""
@@ -106,34 +106,28 @@ Begin Window Window1
       LockRight       =   True
       LockTop         =   True
       RequiresSelection=   False
+      RowSelectionType=   0
       Scope           =   2
-      ScrollbarHorizontal=   False
-      ScrollBarVertical=   True
-      SelectionType   =   0
-      ShowDropIndicator=   False
       TabIndex        =   12
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   210
       Transparent     =   False
       Underline       =   False
-      UseFocusRing    =   True
       Visible         =   True
       Width           =   500
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
    End
-   Begin Label labCompareLink
-      AutoDeactivate  =   True
+   Begin DesktopLabel labCompareLink
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -150,25 +144,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "https://crccalc.com/"
-      TextAlign       =   2
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   410
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   368
    End
-   Begin Label labCompareTitle
-      AutoDeactivate  =   True
+   Begin DesktopLabel labCompareTitle
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -185,25 +177,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Compare Results:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   410
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   120
    End
-   Begin Label labOutputType
-      AutoDeactivate  =   True
+   Begin DesktopLabel labOutputType
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -220,24 +210,24 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Output Type:"
-      TextAlign       =   0
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   180
       Transparent     =   False
       Underline       =   False
       Visible         =   True
       Width           =   90
    End
-   Begin RadioButton radOutputHex
-      AutoDeactivate  =   True
+   Begin DesktopRadioButton radOutputHex
+      AllowAutoDeactivate=   True
       Bold            =   False
       Caption         =   " Hex "
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -251,9 +241,7 @@ Begin Window Window1
       TabIndex        =   10
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   180
       Transparent     =   False
       Underline       =   False
@@ -261,13 +249,15 @@ Begin Window Window1
       Visible         =   True
       Width           =   60
    End
-   Begin RadioButton radOutputDec
-      AutoDeactivate  =   True
+   Begin DesktopRadioButton radOutputDec
+      AllowAutoDeactivate=   True
       Bold            =   False
       Caption         =   " Dec "
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -281,9 +271,7 @@ Begin Window Window1
       TabIndex        =   11
       TabPanelIndex   =   0
       TabStop         =   True
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   180
       Transparent     =   False
       Underline       =   False
@@ -291,38 +279,14 @@ Begin Window Window1
       Visible         =   True
       Width           =   60
    End
-   BeginSegmented SegmentedControl segCRCType
-      Enabled         =   True
-      Height          =   28
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Left            =   20
-      LockBottom      =   False
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   True
-      MacControlStyle =   0
-      Scope           =   2
-      Segments        =   "CRC8\n\nFalse\rCRC16\n\nTrue\rCRC32\n\nFalse"
-      SelectionType   =   0
-      TabIndex        =   8
-      TabPanelIndex   =   0
-      Top             =   180
-      Transparent     =   False
-      Visible         =   True
-      Width           =   163
-   End
-   Begin Canvas cnvAppIcon
-      AcceptFocus     =   False
-      AcceptTabs      =   False
-      AutoDeactivate  =   True
+   Begin DesktopCanvas cnvAppIcon
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
       Height          =   64
-      HelpTag         =   "https://www.jo-tools.ch/xojo/crccalculator/"
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   20
@@ -335,20 +299,20 @@ Begin Window Window1
       TabIndex        =   0
       TabPanelIndex   =   0
       TabStop         =   True
+      Tooltip         =   ""
       Top             =   20
       Transparent     =   True
-      UseFocusRing    =   True
       Visible         =   True
       Width           =   64
    End
-   Begin Label labAppName
-      AutoDeactivate  =   True
+   Begin DesktopLabel labAppName
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   "https://www.jo-tools.ch/xojo/crccalculator/"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -365,25 +329,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "CRC Calculator"
-      TextAlign       =   1
+      TextAlignment   =   0
       TextColor       =   &c0072D800
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   20
       Transparent     =   True
       Underline       =   True
       Visible         =   True
       Width           =   200
    End
-   Begin Label labThanks
-      AutoDeactivate  =   True
+   Begin DesktopLabel labThanks
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -400,25 +362,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Would you like to say 'Thank you'?"
-      TextAlign       =   2
+      TextAlignment   =   0
       TextColor       =   &c66666600
-      TextFont        =   "SmallSystem"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   20
       Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   209
    End
-   Begin Label labAppVersion
-      AutoDeactivate  =   True
+   Begin DesktopLabel labAppVersion
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -435,25 +395,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "AppVersion"
-      TextAlign       =   1
+      TextAlignment   =   0
       TextColor       =   &c00000000
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   54
       Transparent     =   True
       Underline       =   False
       Visible         =   True
       Width           =   200
    End
-   Begin Label labContact
-      AutoDeactivate  =   True
+   Begin DesktopLabel labContact
+      AllowAutoDeactivate=   True
       Bold            =   False
-      DataField       =   ""
-      DataSource      =   ""
       Enabled         =   True
+      FontName        =   "System"
+      FontSize        =   0.0
+      FontUnit        =   0
       Height          =   30
-      HelpTag         =   "xojo@jo-tools.ch"
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
@@ -470,27 +428,23 @@ Begin Window Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Contact"
-      TextAlign       =   1
+      TextAlignment   =   0
       TextColor       =   &c0072CE00
-      TextFont        =   "System"
-      TextSize        =   0.0
-      TextUnit        =   0
+      Tooltip         =   ""
       Top             =   54
       Transparent     =   True
       Underline       =   True
       Visible         =   True
       Width           =   70
    End
-   Begin Canvas cnvPayPal
-      AcceptFocus     =   False
-      AcceptTabs      =   False
-      AutoDeactivate  =   True
+   Begin DesktopCanvas cnvPayPal
+      AllowAutoDeactivate=   True
+      AllowFocus      =   False
+      AllowFocusRing  =   True
+      AllowTabs       =   False
       Backdrop        =   0
-      DoubleBuffer    =   False
       Enabled         =   True
-      EraseBackground =   True
       Height          =   30
-      HelpTag         =   "https://paypal.me/jotools"
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   414
@@ -503,17 +457,18 @@ Begin Window Window1
       TabIndex        =   5
       TabPanelIndex   =   0
       TabStop         =   True
+      Tooltip         =   ""
       Top             =   54
       Transparent     =   True
-      UseFocusRing    =   True
       Visible         =   True
       Width           =   106
    End
-   Begin Separator Separator2
-      AutoDeactivate  =   True
+   Begin DesktopSeparator Separator2
+      Active          =   False
+      AllowAutoDeactivate=   True
+      AllowTabStop    =   True
       Enabled         =   True
       Height          =   3
-      HelpTag         =   ""
       Index           =   -2147483648
       InitialParent   =   ""
       Left            =   0
@@ -522,30 +477,58 @@ Begin Window Window1
       LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   6
       TabPanelIndex   =   0
-      TabStop         =   True
+      Tooltip         =   ""
       Top             =   100
       Transparent     =   True
       Visible         =   True
       Width           =   540
+      _mIndex         =   0
+      _mInitialParent =   ""
+      _mName          =   ""
+      _mPanelIndex    =   0
+   End
+   BeginDesktopSegmentedButton DesktopSegmentedButton segCRCType
+      Enabled         =   True
+      Height          =   28
+      Index           =   -2147483648
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   True
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      MacButtonStyle  =   1
+      Scope           =   2
+      Segments        =   "CRC8\n\nFalse\rCRC16\n\nTrue\rCRC32\n\nFalse"
+      SelectionStyle  =   0
+      TabIndex        =   8
+      TabPanelIndex   =   0
+      TabStop         =   False
+      Tooltip         =   ""
+      Top             =   180
+      Transparent     =   False
+      Visible         =   True
+      Width           =   163
    End
 End
-#tag EndWindow
+#tag EndDesktopWindow
 
 #tag WindowCode
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  //Predefined Calculators
 		  eoCRC8Calculators = CRC8Calculator.PredefinedCalculators()
 		  eoCRC16Calculators = CRC16Calculator.PredefinedCalculators()
 		  eoCRC32Calculators = CRC32Calculator.PredefinedCalculators()
 		  
 		  //custom Calculators
-		  eoCRC8Calculators.Append(New CRC8Calculator("CRC8/AN-EXAMPLE", &h1e, &h12, false, false, &h02))
-		  eoCRC16Calculators.Append(New CRC16Calculator("CRC-16/AN-EXAMPLE", &h12a0, &he0e0, true, true, &h0202))
-		  eoCRC32Calculators.Append(New CRC32Calculator("CRC-32/AN-EXAMPLE", &h02d00ba0, &heeddccbb, false, false, &hf0f0f0f0))
+		  eoCRC8Calculators.Add(New CRC8Calculator("CRC8/AN-EXAMPLE", &h1e, &h12, false, false, &h02))
+		  eoCRC16Calculators.Add(New CRC16Calculator("CRC-16/AN-EXAMPLE", &h12a0, &he0e0, True, True, &h0202))
+		  eoCRC32Calculators.Add(New CRC32Calculator("CRC-32/AN-EXAMPLE", &h02d00ba0, &heeddccbb, False, False, &hf0f0f0f0))
 		  
 		  //Window
 		  self.Title = "CRC Calculator"
@@ -578,36 +561,36 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC16()
-		  labCompareLink.HelpTag = "https://crccalc.com/?crc=" + EncodeURLComponent(self.CalcValue) + "&method=crc16&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
+		  labCompareLink.Tooltip = "https://crccalc.com/?crc=" + EncodeURLComponent(Self.CalcValue) + "&method=crc16&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
 		  
 		  Dim iRow As Integer = 0
 		  for each oCRCCalculator As CRC16Calculator in eoCRC16Calculators
-		    if (iRow <= (lstResult.ListCount - 1)) then
-		      lstResult.Cell(iRow, 0) = oCRCCalculator.Caption
+		    If (iRow <= (lstResult.RowCount - 1)) Then
+		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
 		    else
 		      lstResult.AddRow(oCRCCalculator.Caption)
 		    end if
 		    
 		    if radOutputHex.Value then
-		      lstResult.Cell(iRow, 1) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Result(me.CalcValue))
-		      lstResult.Cell(iRow, 2) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Poly)
-		      lstResult.Cell(iRow, 3) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Init)
-		      lstResult.Cell(iRow, 6) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.XorOut)
+		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Result(Me.CalcValue))
+		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Poly)
+		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Init)
+		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.XorOut)
 		    else
-		      lstResult.Cell(iRow, 1) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Result(me.CalcValue))
-		      lstResult.Cell(iRow, 2) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Poly)
-		      lstResult.Cell(iRow, 3) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Init)
-		      lstResult.Cell(iRow, 6) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.XorOut)
+		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Result(Me.CalcValue))
+		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Poly)
+		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Init)
+		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.XorOut)
 		    end if
-		    lstResult.Cell(iRow, 4) = Str(oCRCCalculator.RefIn)
-		    lstResult.Cell(iRow, 5) = Str(oCRCCalculator.RefOut)
+		    lstResult.CellTextAt(iRow, 4) = Str(oCRCCalculator.RefIn)
+		    lstResult.CellTextAt(iRow, 5) = Str(oCRCCalculator.RefOut)
 		    
 		    iRow = iRow + 1
 		  next
 		  
-		  if (iRow < (lstResult.ListCount - 1)) then
-		    for iRemoveRow As Integer = lstResult.ListCount - 1 DownTo iRow
-		      lstResult.RemoveRow(iRemoveRow)
+		  if (iRow < (lstResult.RowCount - 1)) then
+		    for iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
+		      lstResult.RemoveRowAt(iRemoveRow)
 		    next
 		  end if
 		End Sub
@@ -615,36 +598,36 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC32()
-		  labCompareLink.HelpTag = "https://crccalc.com/?crc=" + EncodeURLComponent(self.CalcValue) + "&method=crc32&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
+		  labCompareLink.Tooltip = "https://crccalc.com/?crc=" + EncodeURLComponent(self.CalcValue) + "&method=crc32&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
 		  
 		  Dim iRow As Integer = 0
 		  for each oCRCCalculator As CRC32Calculator in eoCRC32Calculators
-		    if (iRow <= (lstResult.ListCount - 1)) then
-		      lstResult.Cell(iRow, 0) = oCRCCalculator.Caption
+		    if (iRow <= (lstResult.RowCount - 1)) then
+		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
 		    else
 		      lstResult.AddRow(oCRCCalculator.Caption)
 		    end if
 		    
 		    if radOutputHex.Value then
-		      lstResult.Cell(iRow, 1) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Result(me.CalcValue))
-		      lstResult.Cell(iRow, 2) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Poly)
-		      lstResult.Cell(iRow, 3) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Init)
-		      lstResult.Cell(iRow, 6) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.XorOut)
+		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Result(Me.CalcValue))
+		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Poly)
+		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Init)
+		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.XorOut)
 		    else
-		      lstResult.Cell(iRow, 1) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Result(me.CalcValue))
-		      lstResult.Cell(iRow, 2) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Poly)
-		      lstResult.Cell(iRow, 3) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Init)
-		      lstResult.Cell(iRow, 6) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.XorOut)
+		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Result(Me.CalcValue))
+		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Poly)
+		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Init)
+		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.XorOut)
 		    end if
-		    lstResult.Cell(iRow, 4) = Str(oCRCCalculator.RefIn)
-		    lstResult.Cell(iRow, 5) = Str(oCRCCalculator.RefOut)
+		    lstResult.CellTextAt(iRow, 4) = Str(oCRCCalculator.RefIn)
+		    lstResult.CellTextAt(iRow, 5) = Str(oCRCCalculator.RefOut)
 		    
 		    iRow = iRow + 1
 		  next
 		  
-		  if (iRow < (lstResult.ListCount - 1)) then
-		    for iRemoveRow As Integer = lstResult.ListCount - 1 DownTo iRow
-		      lstResult.RemoveRow(iRemoveRow)
+		  if (iRow < (lstResult.RowCount - 1)) then
+		    for iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
+		      lstResult.RemoveRowAt(iRemoveRow)
 		    next
 		  end if
 		End Sub
@@ -652,36 +635,36 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC8()
-		  labCompareLink.HelpTag = "https://crccalc.com/?crc=" + EncodeURLComponent(self.CalcValue) + "&method=crc8&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
+		  labCompareLink.Tooltip = "https://crccalc.com/?crc=" + EncodeURLComponent(self.CalcValue) + "&method=crc8&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
 		  
 		  Dim iRow As Integer = 0
 		  for each oCRCCalculator As CRC8Calculator in eoCRC8Calculators
-		    if (iRow <= (lstResult.ListCount - 1)) then
-		      lstResult.Cell(iRow, 0) = oCRCCalculator.Caption
+		    if (iRow <= (lstResult.RowCount - 1)) then
+		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
 		    else
 		      lstResult.AddRow(oCRCCalculator.Caption)
 		    end if
 		    
 		    if radOutputHex.Value then
-		      lstResult.Cell(iRow, 1) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Result(me.CalcValue))
-		      lstResult.Cell(iRow, 2) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Poly)
-		      lstResult.Cell(iRow, 3) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Init)
-		      lstResult.Cell(iRow, 6) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.XorOut)
+		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Result(me.CalcValue))
+		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Poly)
+		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Init)
+		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.XorOut)
 		    else
-		      lstResult.Cell(iRow, 1) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Result(me.CalcValue))
-		      lstResult.Cell(iRow, 2) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Poly)
-		      lstResult.Cell(iRow, 3) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Init)
-		      lstResult.Cell(iRow, 6) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.XorOut)
+		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Result(Me.CalcValue))
+		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Poly)
+		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Init)
+		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.XorOut)
 		    end if
-		    lstResult.Cell(iRow, 4) = Str(oCRCCalculator.RefIn)
-		    lstResult.Cell(iRow, 5) = Str(oCRCCalculator.RefOut)
+		    lstResult.CellTextAt(iRow, 4) = Str(oCRCCalculator.RefIn)
+		    lstResult.CellTextAt(iRow, 5) = Str(oCRCCalculator.RefOut)
 		    
 		    iRow = iRow + 1
 		  next
 		  
-		  if (iRow < (lstResult.ListCount - 1)) then
-		    for iRemoveRow As Integer = lstResult.ListCount - 1 DownTo iRow
-		      lstResult.RemoveRow(iRemoveRow)
+		  if (iRow < (lstResult.RowCount - 1)) then
+		    for iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
+		      lstResult.RemoveRowAt(iRemoveRow)
 		    next
 		  end if
 		End Sub
@@ -719,74 +702,73 @@ End
 
 #tag Events edtInput
 	#tag Event
-		Sub TextChange()
+		Sub TextChanged()
 		  self.ShowResults()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events lstResult
 	#tag Event
-		Sub Open()
-		  me.TextFont = "Courier"
+		Sub Opening()
+		  Me.FontName = "Courier"
 		  
-		  me.HasHeading = true
+		  Me.HasHeader = True
 		  me.ColumnCount = 7
-		  me.Heading(0) = "Algorithm"
-		  me.Heading(1) = "Result"
-		  me.Heading(2) = "Poly"
-		  me.Heading(3) = "Init"
-		  me.Heading(4) = "RefIn"
-		  me.Heading(5) = "RefOut"
-		  me.Heading(6) = "XorOut"
+		  Me.HeaderAt(0) = "Algorithm"
+		  Me.HeaderAt(1) = "Result"
+		  Me.HeaderAt(2) = "Poly"
+		  Me.HeaderAt(3) = "Init"
+		  Me.HeaderAt(4) = "RefIn"
+		  Me.HeaderAt(5) = "RefOut"
+		  Me.HeaderAt(6) = "XorOut"
 		  
-		  me.ColumnAlignment(1) = Listbox.AlignCenter
-		  me.ColumnAlignment(2) = Listbox.AlignCenter
-		  me.ColumnAlignment(3) = Listbox.AlignCenter
-		  me.ColumnAlignment(4) = Listbox.AlignCenter
-		  me.ColumnAlignment(5) = Listbox.AlignCenter
-		  me.ColumnAlignment(6) = Listbox.AlignCenter
+		  Me.ColumnAlignmentAt(1) = DesktopListbox.Alignments.Center
+		  Me.ColumnAlignmentAt(2) = DesktopListbox.Alignments.Center
+		  Me.ColumnAlignmentAt(3) = DesktopListbox.Alignments.Center
+		  Me.ColumnAlignmentAt(4) = DesktopListbox.Alignments.Center
+		  Me.ColumnAlignmentAt(5) = DesktopListbox.Alignments.Center
+		  Me.ColumnAlignmentAt(6) = DesktopListbox.Alignments.Center
 		  
 		  me.ColumnWidths = "22%,14%,14%,14%,11%,11%,14%"
-		  me.DefaultRowHeight = 24
-		  me.GridLinesHorizontal = Listbox.BorderThinSolid
-		  me.GridLinesVertical = Listbox.BorderThinDotted
+		  Me.DefaultRowHeight = 24
+		  
+		  Me.GridLineStyle = DesktopListBox.GridLineStyles.Both
+		  
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function CellBackgroundPaint(g As Graphics, row As Integer, column As Integer) As Boolean
+		Function PaintCellBackground(g As Graphics, row As Integer, column As Integer) As Boolean
 		  #pragma unused column
 		  
 		  Dim oBGColor As Color
 		  
-		  if me.Selected(row) then
-		    oBGColor = HighlightColor
+		  If Me.RowSelectedAt(row) Then
+		    oBGColor = Color.HighlightColor
 		  else
 		    
 		    if (row mod 2 = 0) then
-		      oBGColor = RGB(250,250,250)
-		    else
-		      oBGColor = RGB(230,230,230)
+		      oBGColor = Color.RGB(250,250,250)
+		    Else
+		      oBGColor = Color.RGB(230,230,230)
 		    end if
-		    #if (XojoVersion >= 2018.03) then
-		      if IsDarkMode then
-		        if (row mod 2 = 0) then
-		          oBGColor = &c1D1D1C
-		        else
-		          oBGColor = &c272728
-		        end if
-		      end if
-		    #endif
+		    If Color.IsDarkMode Then
+		      If (row Mod 2 = 0) Then
+		        oBGColor = &c1D1D1C
+		      Else
+		        oBGColor = &c272728
+		      End If
+		    End If
 		    
 		  end if
 		  
 		  
-		  g.ForeColor = oBGColor
-		  g.FillRect(0, 0, g.Width, g.Height)
+		  g.DrawingColor = oBGColor
+		  g.FillRectangle(0, 0, g.Width, g.Height)
 		  return true
 		End Function
 	#tag EndEvent
 	#tag Event
-		Function CellTextPaint(g As Graphics, row As Integer, column As Integer, x as Integer, y as Integer) As Boolean
+		Function PaintCellText(g as Graphics, row as Integer, column as Integer, x as Integer, y as Integer) As Boolean
 		  #pragma unused X
 		  #pragma unused Y
 		  #pragma unused row
@@ -798,14 +780,14 @@ End
 #tag EndEvents
 #tag Events labCompareLink
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  if (x >= 0) and (x <= me.Width) and (y >= 0) and (y <= me.Height) then
-		    ShowURL(me.HelpTag)
+		    System.GotoURL(me.Tooltip)
 		  end if
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #pragma unused X
 		  #pragma unused Y
 		  
@@ -823,59 +805,43 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub Open()
-		  me.TextColor = RGB(25,130,210)
+		Sub Opening()
+		  me.TextColor = Color.RGB(25,130,210)
 		  me.Underline = true
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events radOutputHex
 	#tag Event
-		Sub Action()
+		Sub ValueChanged()
 		  self.ShowResults()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events radOutputDec
 	#tag Event
-		Sub Action()
+		Sub ValueChanged()
 		  self.ShowResults()
-		End Sub
-	#tag EndEvent
-#tag EndEvents
-#tag Events segCRCType
-	#tag Event
-		Sub Action(itemIndex as integer)
-		  eiSegmentIndex = itemIndex
-		  self.ShowResults()
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Open()
-		  #if TargetMacOS then
-		    me.Height = 24
-		    me.Top = me.Top + 2
-		  #endif
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events cnvAppIcon
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  #pragma unused areas
 		  
 		  g.DrawPicture(AppIcon_128, 0, 0, 64, 64, 0, 0, AppIcon_128.Width, AppIcon_128.Height)
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://www.jo-tools.ch/xojo/crccalculator/")
+		    System.GotoURL("https://www.jo-tools.ch/xojo/crccalculator/")
 		  end if
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #pragma unused X
 		  #pragma unused Y
 		  
@@ -896,21 +862,21 @@ End
 #tag EndEvents
 #tag Events labAppName
 	#tag Event
-		Sub Open()
+		Sub Opening()
 		  me.Text = "CRC Calculator"
-		  me.TextSize = 18
+		  me.FontSize = 18
 		  me.Bold = true
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://www.jo-tools.ch/xojo/crccalculator/")
+		    System.GotoURL("https://www.jo-tools.ch/xojo/crccalculator/")
 		  end if
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #pragma unused X
 		  #pragma unused Y
 		  
@@ -931,9 +897,9 @@ End
 #tag EndEvents
 #tag Events labAppVersion
 	#tag Event
-		Sub Open()
-		  if (App.ShortVersion <> "") then
-		    me.Text = App.ShortVersion
+		Sub Opening()
+		  If (App.Version <> "") Then
+		    me.Text = App.Version
 		    return
 		  end if
 		  
@@ -954,7 +920,7 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #pragma unused X
 		  #pragma unused Y
 		  
@@ -962,25 +928,24 @@ End
 		End Function
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("mailto:xojo@jo-tools.ch")
+		    System.GotoURL("mailto:xojo@jo-tools.ch")
 		  end if
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events cnvPayPal
 	#tag Event
-		Sub Paint(g As Graphics, areas() As REALbasic.Rect)
+		Sub Paint(g As Graphics, areas() As Rect)
 		  #pragma unused areas
 		  
-		  g.ForeColor = &cFFFFFF
-		  #if (XojoVersion >= 2018.03) then
-		    if IsDarkMode then g.ForeColor = &cD0D0D0
-		  #endif
-		  g.FillRect(0, 0, g.Width, g.Height)
-		  g.ForeColor = &c909090
-		  g.DrawRect(0, 0, g.Width, g.Height)
+		  g.DrawingColor = &cFFFFFF
+		  If Color.IsDarkMode Then g.DrawingColor = &cD0D0D0
+		  
+		  g.FillRectangle(0, 0, g.Width, g.Height)
+		  g.DrawingColor = &c909090
+		  g.DrawRectangle(0, 0, g.Width, g.Height)
 		  g.DrawPicture(PayPal, 3, 2, 100, 26, 0, 0, PayPal.Width, PayPal.Height)
 		End Sub
 	#tag EndEvent
@@ -996,14 +961,14 @@ End
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Sub MouseUp(X As Integer, Y As Integer)
+		Sub MouseUp(x As Integer, y As Integer)
 		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
-		    ShowURL("https://paypal.me/jotools")
+		    System.GotoURL("https://paypal.me/jotools")
 		  end if
 		End Sub
 	#tag EndEvent
 	#tag Event
-		Function MouseDown(X As Integer, Y As Integer) As Boolean
+		Function MouseDown(x As Integer, y As Integer) As Boolean
 		  #pragma unused X
 		  #pragma unused Y
 		  
@@ -1011,76 +976,61 @@ End
 		End Function
 	#tag EndEvent
 #tag EndEvents
+#tag Events segCRCType
+	#tag Event
+		Sub Opening()
+		  #If TargetMacOS Then
+		    Me.Height = 24
+		    Me.Top = Me.Top + 2
+		  #endif
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub Pressed(segmentIndex As Integer)
+		  eiSegmentIndex = segmentIndex
+		  Self.ShowResults()
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
-		Name="Name"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Interfaces"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Super"
-		Visible=true
-		Group="ID"
-		Type="String"
-		EditorType="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Width"
-		Visible=true
-		Group="Size"
-		InitialValue="540"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Height"
-		Visible=true
-		Group="Size"
-		InitialValue="350"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MinWidth"
+		Name="MinimumWidth"
 		Visible=true
 		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinHeight"
+		Name="MinimumHeight"
 		Visible=true
 		Group="Size"
 		InitialValue="64"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxWidth"
+		Name="MaximumWidth"
 		Visible=true
 		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaxHeight"
+		Name="MaximumHeight"
 		Visible=true
 		Group="Size"
 		InitialValue="32000"
 		Type="Integer"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Frame"
+		Name="Type"
 		Visible=true
 		Group="Frame"
 		InitialValue="0"
-		Type="Integer"
+		Type="Types"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Document"
@@ -1092,83 +1042,47 @@ End
 			"6 - Rounded Window"
 			"7 - Global Floating Window"
 			"8 - Sheet Window"
-			"9 - Metal Window"
-			"11 - Modeless Dialog"
+			"9 - Modeless Dialog"
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Title"
-		Visible=true
-		Group="Frame"
-		InitialValue="Untitled"
-		Type="String"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="CloseButton"
+		Name="HasCloseButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Resizeable"
+		Name="HasMaximizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MaximizeButton"
+		Name="HasMinimizeButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="MinimizeButton"
-		Visible=true
-		Group="Frame"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="FullScreenButton"
+		Name="HasFullScreenButton"
 		Visible=true
 		Group="Frame"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
-		Name="Composite"
-		Group="OS X (Carbon)"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="MacProcID"
-		Group="OS X (Carbon)"
-		InitialValue="0"
-		Type="Integer"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="ImplicitInstance"
-		Visible=true
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="Placement"
+		Name="DefaultLocation"
 		Visible=true
 		Group="Behavior"
 		InitialValue="0"
-		Type="Integer"
+		Type="Locations"
 		EditorType="Enum"
 		#tag EnumValues
 			"0 - Default"
@@ -1179,54 +1093,132 @@ End
 		#tag EndEnumValues
 	#tag EndViewProperty
 	#tag ViewProperty
+		Name="HasBackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="BackgroundColor"
+		Visible=true
+		Group="Background"
+		InitialValue="&hFFFFFF"
+		Type="ColorGroup"
+		EditorType="ColorGroup"
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Name"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Interfaces"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Super"
+		Visible=true
+		Group="ID"
+		InitialValue=""
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Width"
+		Visible=true
+		Group="Size"
+		InitialValue="540"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Height"
+		Visible=true
+		Group="Size"
+		InitialValue="350"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Title"
+		Visible=true
+		Group="Frame"
+		InitialValue="Untitled"
+		Type="String"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Resizeable"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="Composite"
+		Visible=false
+		Group="OS X (Carbon)"
+		InitialValue="False"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="MacProcID"
+		Visible=false
+		Group="OS X (Carbon)"
+		InitialValue="0"
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ImplicitInstance"
+		Visible=true
+		Group="Behavior"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
 		Name="Visible"
 		Visible=true
 		Group="Behavior"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="LiveResize"
-		Group="Behavior"
-		InitialValue="True"
-		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="FullScreen"
+		Visible=false
 		Group="Behavior"
 		InitialValue="False"
 		Type="Boolean"
-		EditorType="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="HasBackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="False"
-		Type="Boolean"
-	#tag EndViewProperty
-	#tag ViewProperty
-		Name="BackColor"
-		Visible=true
-		Group="Background"
-		InitialValue="&hFFFFFF"
-		Type="Color"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="Backdrop"
 		Visible=true
 		Group="Background"
+		InitialValue=""
 		Type="Picture"
-		EditorType="Picture"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBar"
 		Visible=true
 		Group="Menus"
-		Type="MenuBar"
-		EditorType="MenuBar"
+		InitialValue=""
+		Type="DesktopMenuBar"
+		EditorType=""
 	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MenuBarVisible"
@@ -1234,6 +1226,6 @@ End
 		Group="Deprecated"
 		InitialValue="True"
 		Type="Boolean"
-		EditorType="Boolean"
+		EditorType=""
 	#tag EndViewProperty
 #tag EndViewBehavior

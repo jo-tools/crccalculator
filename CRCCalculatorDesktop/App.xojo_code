@@ -1,9 +1,9 @@
 #tag Class
 Protected Class App
-Inherits Application
+Inherits DesktopApplication
 	#tag Event
-		Sub Open()
-		  me.AutoQuit = true
+		Sub Opening()
+		  me.AllowAutoQuit = true
 		End Sub
 	#tag EndEvent
 

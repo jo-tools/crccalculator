@@ -31,11 +31,11 @@ Protected Class CRC32Calculator
 		Private Sub CRC_BuildTable()
 		  //http://www.sunshine2k.de/articles/coding/crc/understanding_crc.html
 		  
-		  Redim eaCRCTable(-1)
-		  Dim generator As UInt32 = Me.Poly
+		  eaCRCTable.ResizeTo(-1)
+		  Var generator As UInt32 = Me.Poly
 		  
 		  For divident As Integer = 0 To 255
-		    Dim curbyte As UInt32 = Bitwise.ShiftLeft(divident,24)
+		    Var curbyte As UInt32 = Bitwise.ShiftLeft(divident,24)
 		    For bit As UInt8 = 0 To 7
 		      If (Bitwise.BitAnd(curbyte, &h80000000) <> 0) Then
 		        curbyte = Bitwise.ShiftLeft(curbyte,1)
@@ -44,19 +44,19 @@ Protected Class CRC32Calculator
 		        curbyte = Bitwise.ShiftLeft(curbyte,1)
 		      End If
 		    Next
-		    eaCRCTable.Append(curbyte)
+		    eaCRCTable.Add(curbyte)
 		  Next
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Function CRC_CalcResult(psValue As String) As UInt32
-		  Dim mb As MemoryBlock = psValue
+		  Var mb As MemoryBlock = psValue
 		  
-		  Dim bTemp As Byte
-		  Dim crc As UInt32 = me.Init
+		  Var bTemp As Byte
+		  Var crc As UInt32 = me.Init
 		  
-		  Dim curbyte As UInt8
+		  Var curbyte As UInt8
 		  For i As Integer = 0 To mb.Size-1
 		    curbyte = mb.UInt8Value(i)
 		    If me.RefIn Then curbyte = Reflect8(curbyte)
@@ -114,16 +114,16 @@ Protected Class CRC32Calculator
 
 	#tag Method, Flags = &h0
 		Shared Function PredefinedCalculators() As CRC32Calculator()
-		  Dim oCRCCalculators() As CRC32Calculator
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.CRC32))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.BZIP2))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.C))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.D))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.MPEG_2))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.POSIX))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.Q))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.JAMCRC))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.XFER))
+		  Var oCRCCalculators() As CRC32Calculator
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.CRC32))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.BZIP2))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.C))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.D))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.MPEG_2))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.POSIX))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.Q))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.JAMCRC))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.XFER))
 		  return oCRCCalculators
 		End Function
 	#tag EndMethod
@@ -136,7 +136,7 @@ Protected Class CRC32Calculator
 
 	#tag Method, Flags = &h21
 		Private Function Reflect32(piValue As UInt32) As UInt32
-		  Dim resVal As UInt32
+		  Var resVal As UInt32
 		  for i As UInt8 = 0 to 31
 		    if (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) then
 		      resVal = Bitwise.BitOr(resVal, Bitwise.ShiftLeft(1,31-i))
@@ -149,7 +149,7 @@ Protected Class CRC32Calculator
 
 	#tag Method, Flags = &h21
 		Private Function Reflect8(piValue As UInt8) As Uint8
-		  Dim resVal As UInt8
+		  Var resVal As UInt8
 		  for i As UInt8 = 0 to 7
 		    if (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) then
 		      resVal = Bitwise.BitOr(resVal, Bitwise.ShiftLeft(1,7-i))
@@ -183,7 +183,9 @@ Protected Class CRC32Calculator
 		  Const constHexPrefix = "0x"
 		  Const constHexFormat = "00000000"
 		  
-		  return constHexPrefix + Right(constHexFormat + Hex(piValue), 8)
+		  Var sVal As String = constHexFormat + Hex(piValue)
+		  return constHexPrefix + sVal.Right(8)
+		  
 		End Function
 	#tag EndMethod
 
@@ -247,7 +249,9 @@ Protected Class CRC32Calculator
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -255,12 +259,15 @@ Protected Class CRC32Calculator
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -268,6 +275,7 @@ Protected Class CRC32Calculator
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -275,6 +283,7 @@ Protected Class CRC32Calculator
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class
