@@ -13,7 +13,6 @@
 # **************************************************************
 
 
-
 # get input
 echo "Xojo2Docker: reading input variables..."
 PROJECT_PATH=$1
@@ -27,7 +26,7 @@ DOCKER_PUSH_ENABLED=$7
 DOCKER_IMAGE_TAG="${DOCKER_TAG}"
 DOCKER_FILE="${BUILD_LOCATION}/Dockerfile"
 DOCKER_IMAGE_FINAL="${BUILD_LOCATION}/${BUILD_APPNAME}.dockerimage.tgz"
-
+DOCKER_TAG_LATEST="$(cut -d':' -f1 <<<${DOCKER_TAG})"
 
 # check input
 echo ""
@@ -192,6 +191,11 @@ if [ ! -z "$DOCKER_BUILD_MULTIARCH_IMAGE" ]; then
 			echo "Xojo2Docker ERROR: 'docker manifest push $DOCKER_TAG' failed."
 			exit 10
 		fi
+
+		DOCKER_TAG_LATEST="$(cut -d':' -f1 <<<'${DOCKER_TAG}')"
+		echo ""
+		echo "Xojo2Docker: [Info] Tag and Push MultiArch 'latest' by executing this command"
+		echo "docker buildx imagetools create -t ${DOCKER_TAG_LATEST} ${DOCKER_TAG}"
 	fi
 fi
 
