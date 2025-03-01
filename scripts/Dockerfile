@@ -34,4 +34,4 @@ ADD / /app/
 #EXPOSE PORT AND RUN APPLICATION
 EXPOSE 80
 WORKDIR /app
-CMD /app/CRCCalculatorWeb
+CMD ["sh", "-c", "/app/CRCCalculatorWeb"]
