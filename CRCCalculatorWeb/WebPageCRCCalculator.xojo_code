@@ -88,7 +88,7 @@ Begin WebPage WebPageCRCCalculator
       TabIndex        =   1
       TabStop         =   True
       Text            =   "CRC Calculator"
-      TextAlignment   =   0
+      TextAlignment   =   1
       TextColor       =   colAppLabel
       Tooltip         =   ""
       Top             =   20
@@ -122,7 +122,7 @@ Begin WebPage WebPageCRCCalculator
       TabIndex        =   3
       TabStop         =   True
       Text            =   "App Version"
-      TextAlignment   =   0
+      TextAlignment   =   1
       TextColor       =   &c000000FF
       Tooltip         =   ""
       Top             =   45
@@ -137,12 +137,12 @@ Begin WebPage WebPageCRCCalculator
       CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
-      FontSize        =   9.0
+      FontSize        =   10.0
       Height          =   24
       Index           =   -2147483648
       Indicator       =   0
       Italic          =   False
-      Left            =   580
+      Left            =   590
       LockBottom      =   False
       LockedInPosition=   True
       LockHorizontal  =   False
@@ -162,7 +162,7 @@ Begin WebPage WebPageCRCCalculator
       Top             =   20
       Underline       =   False
       Visible         =   True
-      Width           =   200
+      Width           =   190
       _mPanelIndex    =   -1
    End
    Begin WebImageViewer imgPayPal
@@ -201,12 +201,12 @@ Begin WebPage WebPageCRCCalculator
       CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
-      FontSize        =   9.0
+      FontSize        =   10.0
       Height          =   26
       Index           =   -2147483648
       Indicator       =   0
       Italic          =   False
-      Left            =   580
+      Left            =   615
       LockBottom      =   False
       LockedInPosition=   True
       LockHorizontal  =   False
@@ -220,13 +220,13 @@ Begin WebPage WebPageCRCCalculator
       TabIndex        =   4
       TabStop         =   True
       Text            =   "Contact"
-      TextAlignment   =   3
+      TextAlignment   =   1
       TextColor       =   colLinkLabel
       Tooltip         =   "#kEmail_Contact"
       Top             =   44
       Underline       =   True
       Visible         =   True
-      Width           =   85
+      Width           =   65
       _mPanelIndex    =   -1
    End
    Begin WebTextArea edtInput

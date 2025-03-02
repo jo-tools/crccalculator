@@ -250,7 +250,7 @@ Begin DesktopWindow Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   101
+      Left            =   100
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -263,14 +263,14 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "CRC Calculator"
-      TextAlignment   =   0
+      TextAlignment   =   1
       TextColor       =   &c0072D800
       Tooltip         =   "#kURL_Repository"
       Top             =   20
       Transparent     =   True
       Underline       =   True
       Visible         =   True
-      Width           =   200
+      Width           =   190
    End
    Begin DesktopLabel labThanks
       AllowAutoDeactivate=   True
@@ -283,7 +283,7 @@ Begin DesktopWindow Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   311
+      Left            =   300
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   False
@@ -296,14 +296,14 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Would you like to say 'Thank you'?"
-      TextAlignment   =   0
+      TextAlignment   =   3
       TextColor       =   &c66666600
       Tooltip         =   ""
       Top             =   20
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   209
+      Width           =   220
    End
    Begin DesktopLabel labAppVersion
       AllowAutoDeactivate=   True
@@ -316,7 +316,7 @@ Begin DesktopWindow Window1
       Index           =   -2147483648
       InitialParent   =   ""
       Italic          =   False
-      Left            =   101
+      Left            =   100
       LockBottom      =   False
       LockedInPosition=   True
       LockLeft        =   True
@@ -329,14 +329,14 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "AppVersion"
-      TextAlignment   =   0
+      TextAlignment   =   1
       TextColor       =   &c00000000
       Tooltip         =   ""
       Top             =   54
       Transparent     =   True
       Underline       =   False
       Visible         =   True
-      Width           =   200
+      Width           =   190
    End
    Begin DesktopLabel labContact
       AllowAutoDeactivate=   True
@@ -362,7 +362,7 @@ Begin DesktopWindow Window1
       TabPanelIndex   =   0
       TabStop         =   True
       Text            =   "Contact"
-      TextAlignment   =   0
+      TextAlignment   =   1
       TextColor       =   &c0072CE00
       Tooltip         =   "#kEmail_Contact"
       Top             =   54
