@@ -27,7 +27,7 @@ Begin DesktopWindow Window1
    Begin DesktopTextArea edtInput
       AllowAutoDeactivate=   True
       AllowFocusRing  =   True
-      AllowSpellChecking=   True
+      AllowSpellChecking=   False
       AllowStyledText =   True
       AllowTabs       =   False
       BackgroundColor =   &cFFFFFF
