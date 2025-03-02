@@ -460,35 +460,35 @@ End
 		  eoCRC32Calculators = CRC32Calculator.PredefinedCalculators()
 		  
 		  //custom Calculators
-		  eoCRC8Calculators.Add(New CRC8Calculator("CRC8/AN-EXAMPLE", &h1e, &h12, false, false, &h02))
+		  eoCRC8Calculators.Add(New CRC8Calculator("CRC8/AN-EXAMPLE", &h1e, &h12, False, False, &h02))
 		  eoCRC16Calculators.Add(New CRC16Calculator("CRC-16/AN-EXAMPLE", &h12a0, &he0e0, True, True, &h0202))
 		  eoCRC32Calculators.Add(New CRC32Calculator("CRC-32/AN-EXAMPLE", &h02d00ba0, &heeddccbb, False, False, &hf0f0f0f0))
 		  
 		  //Window
-		  self.Title = "CRC Calculator"
-		  self.Width = 700
-		  self.Height = 550
-		  self.ShowResults()
+		  Self.Title = "CRC Calculator"
+		  Self.Width = 700
+		  Self.Height = 550
+		  Self.ShowResults()
 		End Sub
 	#tag EndEvent
 
 
 	#tag Method, Flags = &h21
 		Private Function CalcValue() As String
-		  return ConvertEncoding(edtInput.Text, Encodings.UTF8)
+		  Return ConvertEncoding(edtInput.Text, Encodings.UTF8)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults()
-		  select case eiSegmentIndex
-		  case 0
-		    me.ShowResults_CRC8()
-		  case 1
-		    me.ShowResults_CRC16()
-		  case 2
-		    me.ShowResults_CRC32()
-		  end select
+		  Select Case eiSegmentIndex
+		  Case 0
+		    Me.ShowResults_CRC8()
+		  Case 1
+		    Me.ShowResults_CRC16()
+		  Case 2
+		    Me.ShowResults_CRC32()
+		  End Select
 		  
 		End Sub
 	#tag EndMethod
@@ -496,105 +496,105 @@ End
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC16()
 		  Var iRow As Integer = 0
-		  for each oCRCCalculator As CRC16Calculator in eoCRC16Calculators
+		  For Each oCRCCalculator As CRC16Calculator In eoCRC16Calculators
 		    If (iRow <= (lstResult.RowCount - 1)) Then
 		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
-		    else
+		    Else
 		      lstResult.AddRow(oCRCCalculator.Caption)
-		    end if
+		    End If
 		    
-		    if radOutputHex.Value then
+		    If radOutputHex.Value Then
 		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Result(Me.CalcValue))
 		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Poly)
 		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.Init)
 		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt16_AsHex(oCRCCalculator.XorOut)
-		    else
+		    Else
 		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Result(Me.CalcValue))
 		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Poly)
 		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.Init)
 		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt16_AsDec(oCRCCalculator.XorOut)
-		    end if
+		    End If
 		    lstResult.CellTextAt(iRow, 4) = Str(oCRCCalculator.RefIn)
 		    lstResult.CellTextAt(iRow, 5) = Str(oCRCCalculator.RefOut)
 		    
 		    iRow = iRow + 1
-		  next
+		  Next
 		  
-		  if (iRow < (lstResult.RowCount - 1)) then
-		    for iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
+		  If (iRow < (lstResult.RowCount - 1)) Then
+		    For iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
 		      lstResult.RemoveRowAt(iRemoveRow)
-		    next
-		  end if
+		    Next
+		  End If
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC32()
 		  Var iRow As Integer = 0
-		  for each oCRCCalculator As CRC32Calculator in eoCRC32Calculators
-		    if (iRow <= (lstResult.RowCount - 1)) then
+		  For Each oCRCCalculator As CRC32Calculator In eoCRC32Calculators
+		    If (iRow <= (lstResult.RowCount - 1)) Then
 		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
-		    else
+		    Else
 		      lstResult.AddRow(oCRCCalculator.Caption)
-		    end if
+		    End If
 		    
-		    if radOutputHex.Value then
+		    If radOutputHex.Value Then
 		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Result(Me.CalcValue))
 		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Poly)
 		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.Init)
 		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt32_AsHex(oCRCCalculator.XorOut)
-		    else
+		    Else
 		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Result(Me.CalcValue))
 		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Poly)
 		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.Init)
 		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt32_AsDec(oCRCCalculator.XorOut)
-		    end if
+		    End If
 		    lstResult.CellTextAt(iRow, 4) = Str(oCRCCalculator.RefIn)
 		    lstResult.CellTextAt(iRow, 5) = Str(oCRCCalculator.RefOut)
 		    
 		    iRow = iRow + 1
-		  next
+		  Next
 		  
-		  if (iRow < (lstResult.RowCount - 1)) then
-		    for iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
+		  If (iRow < (lstResult.RowCount - 1)) Then
+		    For iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
 		      lstResult.RemoveRowAt(iRemoveRow)
-		    next
-		  end if
+		    Next
+		  End If
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC8()
 		  Var iRow As Integer = 0
-		  for each oCRCCalculator As CRC8Calculator in eoCRC8Calculators
-		    if (iRow <= (lstResult.RowCount - 1)) then
+		  For Each oCRCCalculator As CRC8Calculator In eoCRC8Calculators
+		    If (iRow <= (lstResult.RowCount - 1)) Then
 		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
-		    else
+		    Else
 		      lstResult.AddRow(oCRCCalculator.Caption)
-		    end if
+		    End If
 		    
-		    if radOutputHex.Value then
-		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Result(me.CalcValue))
+		    If radOutputHex.Value Then
+		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Result(Me.CalcValue))
 		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Poly)
 		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.Init)
 		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt8_AsHex(oCRCCalculator.XorOut)
-		    else
+		    Else
 		      lstResult.CellTextAt(iRow, 1) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Result(Me.CalcValue))
 		      lstResult.CellTextAt(iRow, 2) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Poly)
 		      lstResult.CellTextAt(iRow, 3) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.Init)
 		      lstResult.CellTextAt(iRow, 6) = oCRCCalculator.UInt8_AsDec(oCRCCalculator.XorOut)
-		    end if
+		    End If
 		    lstResult.CellTextAt(iRow, 4) = Str(oCRCCalculator.RefIn)
 		    lstResult.CellTextAt(iRow, 5) = Str(oCRCCalculator.RefOut)
 		    
 		    iRow = iRow + 1
-		  next
+		  Next
 		  
-		  if (iRow < (lstResult.RowCount - 1)) then
-		    for iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
+		  If (iRow < (lstResult.RowCount - 1)) Then
+		    For iRemoveRow As Integer = lstResult.RowCount - 1 DownTo iRow
 		      lstResult.RemoveRowAt(iRemoveRow)
-		    next
-		  end if
+		    Next
+		  End If
 		End Sub
 	#tag EndMethod
 
@@ -631,7 +631,7 @@ End
 #tag Events edtInput
 	#tag Event
 		Sub TextChanged()
-		  self.ShowResults()
+		  Self.ShowResults()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -641,7 +641,7 @@ End
 		  Me.FontName = "Courier"
 		  
 		  Me.HasHeader = True
-		  me.ColumnCount = 7
+		  Me.ColumnCount = 7
 		  Me.HeaderAt(0) = "Algorithm"
 		  Me.HeaderAt(1) = "Result"
 		  Me.HeaderAt(2) = "Poly"
@@ -657,7 +657,7 @@ End
 		  Me.ColumnAlignmentAt(5) = DesktopListbox.Alignments.Center
 		  Me.ColumnAlignmentAt(6) = DesktopListbox.Alignments.Center
 		  
-		  me.ColumnWidths = "22%,14%,14%,14%,11%,11%,14%"
+		  Me.ColumnWidths = "22%,14%,14%,14%,11%,11%,14%"
 		  Me.DefaultRowHeight = 24
 		  
 		  Me.GridLineStyle = DesktopListBox.GridLineStyles.Both
@@ -666,19 +666,19 @@ End
 	#tag EndEvent
 	#tag Event
 		Function PaintCellBackground(g As Graphics, row As Integer, column As Integer) As Boolean
-		  #pragma unused column
+		  #Pragma unused column
 		  
 		  Var oBGColor As Color
 		  
 		  If Me.RowSelectedAt(row) Then
 		    oBGColor = Color.HighlightColor
-		  else
+		  Else
 		    
-		    if (row mod 2 = 0) then
+		    If (row Mod 2 = 0) Then
 		      oBGColor = Color.RGB(250,250,250)
 		    Else
 		      oBGColor = Color.RGB(230,230,230)
-		    end if
+		    End If
 		    If Color.IsDarkMode Then
 		      If (row Mod 2 = 0) Then
 		        oBGColor = &c1D1D1C
@@ -687,106 +687,106 @@ End
 		      End If
 		    End If
 		    
-		  end if
+		  End If
 		  
 		  
 		  g.DrawingColor = oBGColor
 		  g.FillRectangle(0, 0, g.Width, g.Height)
-		  return true
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
 		Function PaintCellText(g as Graphics, row as Integer, column as Integer, x as Integer, y as Integer) As Boolean
-		  #pragma unused X
-		  #pragma unused Y
-		  #pragma unused row
+		  #Pragma unused X
+		  #Pragma unused Y
+		  #Pragma unused row
 		  
 		  g.Bold = (column <= 1)
-		  return false 'let Listbox handle the actual drawing
+		  Return False 'let Listbox handle the actual drawing
 		End Function
 	#tag EndEvent
 #tag EndEvents
 #tag Events radOutputHex
 	#tag Event
 		Sub ValueChanged()
-		  self.ShowResults()
+		  Self.ShowResults()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events radOutputDec
 	#tag Event
 		Sub ValueChanged()
-		  self.ShowResults()
+		  Self.ShowResults()
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events cnvAppIcon
 	#tag Event
 		Sub Paint(g As Graphics, areas() As Rect)
-		  #pragma unused areas
+		  #Pragma unused areas
 		  
 		  g.DrawPicture(AppIcon_128, 0, 0, 64, 64, 0, 0, AppIcon_128.Width, AppIcon_128.Height)
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    System.GotoURL("https://www.jo-tools.ch/xojo/crccalculator/")
-		  end if
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  #pragma unused X
-		  #pragma unused Y
+		  #Pragma unused X
+		  #Pragma unused Y
 		  
-		  return true
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events labAppName
 	#tag Event
 		Sub Opening()
-		  me.Text = "CRC Calculator"
-		  me.FontSize = 18
-		  me.Bold = true
+		  Me.Text = "CRC Calculator"
+		  Me.FontSize = 18
+		  Me.Bold = True
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    System.GotoURL("https://www.jo-tools.ch/xojo/crccalculator/")
-		  end if
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  #pragma unused X
-		  #pragma unused Y
+		  #Pragma unused X
+		  #Pragma unused Y
 		  
-		  return true
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -794,46 +794,46 @@ End
 	#tag Event
 		Sub Opening()
 		  If (App.Version <> "") Then
-		    me.Text = App.Version
-		    return
-		  end if
+		    Me.Text = App.Version
+		    Return
+		  End If
 		  
-		  me.Text = Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
+		  Me.Text = Str(App.MajorVersion) + "." + Str(App.MinorVersion) + "." + Str(App.BugVersion)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events labContact
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  #pragma unused X
-		  #pragma unused Y
+		  #Pragma unused X
+		  #Pragma unused Y
 		  
-		  return true
+		  Return True
 		End Function
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    System.GotoURL("mailto:xojo@jo-tools.ch")
-		  end if
+		  End If
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events cnvPayPal
 	#tag Event
 		Sub Paint(g As Graphics, areas() As Rect)
-		  #pragma unused areas
+		  #Pragma unused areas
 		  
 		  g.DrawingColor = &cFFFFFF
 		  If Color.IsDarkMode Then g.DrawingColor = &cD0D0D0
@@ -846,28 +846,28 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub MouseExit()
-		  me.MouseCursor = nil
+		  Me.MouseCursor = Nil
 		  
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
+		  Me.MouseCursor = System.Cursors.FingerPointer
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x < me.Width) and (y > 0) and (y < me.Height) then
+		  If (x >= 0) And (x < Me.Width) And (y > 0) And (y < Me.Height) Then
 		    System.GotoURL("https://paypal.me/jotools")
-		  end if
+		  End If
 		End Sub
 	#tag EndEvent
 	#tag Event
 		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  #pragma unused X
-		  #pragma unused Y
+		  #Pragma unused X
+		  #Pragma unused Y
 		  
-		  return true
+		  Return True
 		End Function
 	#tag EndEvent
 #tag EndEvents
@@ -877,7 +877,7 @@ End
 		  #If TargetMacOS Then
 		    Me.Height = 24
 		    Me.Top = Me.Top + 2
-		  #endif
+		  #EndIf
 		End Sub
 	#tag EndEvent
 	#tag Event

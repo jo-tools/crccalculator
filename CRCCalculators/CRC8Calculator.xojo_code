@@ -2,7 +2,7 @@
 Protected Class CRC8Calculator
 	#tag Method, Flags = &h0
 		Function Caption() As String
-		  return esAlgorithm
+		  Return esAlgorithm
 		End Function
 	#tag EndMethod
 
@@ -23,7 +23,7 @@ Protected Class CRC8Calculator
 		  ebRefOut = pbRefOut
 		  eiXorOut = piXorOut
 		  
-		  me.CRC_BuildTable()
+		  Me.CRC_BuildTable()
 		End Sub
 	#tag EndMethod
 
@@ -74,42 +74,42 @@ Protected Class CRC8Calculator
 
 	#tag Method, Flags = &h0
 		Shared Function CreateByType(piType As CRC8Type) As CRC8Calculator
-		  select case piType
-		  case CRC8Type.CRC8
-		    return New CRC8Calculator("CRC-8", &h07, &h00, false, false, &h00)
-		  case CRC8Type.CDMA2000
-		    return New CRC8Calculator("CRC-8/CDMA2000", &h9b, &hff, false, false, &h00)
-		  case CRC8Type.DARC
-		    return New CRC8Calculator("CRC-8/DARC", &h39, &h00, true, true, &h00)
-		  case CRC8Type.DVB_S2
-		    return New CRC8Calculator("CRC-8/DVB-S2", &hd5, &h00, false, false, &h00)
-		  case CRC8Type.EBU
-		    return New CRC8Calculator("CRC-8/EBU", &h1d, &hff, true, true, &h00)
-		  case CRC8Type.I_CODE
-		    return New CRC8Calculator("CRC-8/I-CODE", &h1d, &hfd, false, false, &h00)
-		  case CRC8Type.ITU
-		    return New CRC8Calculator("CRC-8/ITU", &h07, &h00, false, false, &h55)
-		  case CRC8Type.MAXIM
-		    return New CRC8Calculator("CRC-8/MAXIM", &h31, &h00, true, true, &h00)
-		  case CRC8Type.ROHC
-		    return New CRC8Calculator("CRC-8/ROHC", &h07, &hff, true, true, &h00)
-		  case CRC8Type.WCDMA
-		    return New CRC8Calculator("CRC-8/WCDMA", &h9b, &h00, true, true, &h00)
-		  end select
+		  Select Case piType
+		  Case CRC8Type.CRC8
+		    Return New CRC8Calculator("CRC-8", &h07, &h00, False, False, &h00)
+		  Case CRC8Type.CDMA2000
+		    Return New CRC8Calculator("CRC-8/CDMA2000", &h9b, &hff, False, False, &h00)
+		  Case CRC8Type.DARC
+		    Return New CRC8Calculator("CRC-8/DARC", &h39, &h00, True, True, &h00)
+		  Case CRC8Type.DVB_S2
+		    Return New CRC8Calculator("CRC-8/DVB-S2", &hd5, &h00, False, False, &h00)
+		  Case CRC8Type.EBU
+		    Return New CRC8Calculator("CRC-8/EBU", &h1d, &hff, True, True, &h00)
+		  Case CRC8Type.I_CODE
+		    Return New CRC8Calculator("CRC-8/I-CODE", &h1d, &hfd, False, False, &h00)
+		  Case CRC8Type.ITU
+		    Return New CRC8Calculator("CRC-8/ITU", &h07, &h00, False, False, &h55)
+		  Case CRC8Type.MAXIM
+		    Return New CRC8Calculator("CRC-8/MAXIM", &h31, &h00, True, True, &h00)
+		  Case CRC8Type.ROHC
+		    Return New CRC8Calculator("CRC-8/ROHC", &h07, &hff, True, True, &h00)
+		  Case CRC8Type.WCDMA
+		    Return New CRC8Calculator("CRC-8/WCDMA", &h9b, &h00, True, True, &h00)
+		  End Select
 		  
-		  return nil
+		  Return Nil
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Init() As UInt8
-		  return eiInit
+		  Return eiInit
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Poly() As UInt8
-		  return eiPoly
+		  Return eiPoly
 		End Function
 	#tag EndMethod
 
@@ -126,44 +126,44 @@ Protected Class CRC8Calculator
 		  oCRCCalculators.Add(CRC8Calculator.CreateByType(CRC8Type.MAXIM))
 		  oCRCCalculators.Add(CRC8Calculator.CreateByType(CRC8Type.ROHC))
 		  oCRCCalculators.Add(CRC8Calculator.CreateByType(CRC8Type.WCDMA))
-		  return oCRCCalculators
+		  Return oCRCCalculators
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function RefIn() As Boolean
-		  return ebRefIn
+		  Return ebRefIn
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Function Reflect8(piValue As UInt8) As Uint8
 		  Var resVal As UInt8
-		  for i As UInt8 = 0 to 7
-		    if (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) then
+		  For i As UInt8 = 0 To 7
+		    If (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) Then
 		      resVal = Bitwise.BitOr(resVal, Bitwise.ShiftLeft(1,7-i))
-		    end if
-		  next
-		  return resVal
+		    End If
+		  Next
+		  Return resVal
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function RefOut() As Boolean
-		  return ebRefOut
+		  Return ebRefOut
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Result(psValue As String) As UInt8
-		  return me.CRC_CalcResult(psValue)
+		  Return Me.CRC_CalcResult(psValue)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function UInt8_AsDec(piValue As UInt8) As String
-		  return Format(piValue, "000")
+		  Return Format(piValue, "000")
 		End Function
 	#tag EndMethod
 
@@ -173,14 +173,14 @@ Protected Class CRC8Calculator
 		  Const constHexFormat = "00"
 		  
 		  Var sVal As String = constHexFormat + Hex(piValue)
-		  return constHexPrefix + sVal.Right(2)
+		  Return constHexPrefix + sVal.Right(2)
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function XorOut() As UInt8
-		  return eiXorOut
+		  Return eiXorOut
 		End Function
 	#tag EndMethod
 

@@ -4,6 +4,7 @@ Begin WebPage WebPageCRCCalculator
    Compatibility   =   ""
    ControlCount    =   0
    ControlID       =   ""
+   CSSClasses      =   ""
    Enabled         =   False
    Height          =   500
    ImplicitInstance=   True
@@ -21,6 +22,8 @@ Begin WebPage WebPageCRCCalculator
    LockVertical    =   False
    MinimumHeight   =   500
    MinimumWidth    =   800
+   PanelIndex      =   0
+   ScaleFactor     =   0.0
    TabIndex        =   0
    Title           =   "CRC Calculator"
    Top             =   0
@@ -29,9 +32,11 @@ Begin WebPage WebPageCRCCalculator
    _ImplicitInstance=   False
    _mDesignHeight  =   0
    _mDesignWidth   =   0
+   _mName          =   ""
    _mPanelIndex    =   -1
    Begin WebImageViewer imgAppIcon
       ControlID       =   ""
+      CSSClasses      =   ""
       DisplayMode     =   0
       Enabled         =   True
       Height          =   50
@@ -46,9 +51,11 @@ Begin WebPage WebPageCRCCalculator
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      PanelIndex      =   0
       Scope           =   2
       SVGData         =   ""
       TabIndex        =   0
+      TabStop         =   True
       Tooltip         =   ""
       Top             =   20
       URL             =   ""
@@ -60,6 +67,7 @@ Begin WebPage WebPageCRCCalculator
    Begin WebLabel labAppName
       Bold            =   True
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
       FontSize        =   0.0
@@ -76,8 +84,10 @@ Begin WebPage WebPageCRCCalculator
       LockTop         =   True
       LockVertical    =   False
       Multiline       =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   1
+      TabStop         =   True
       Text            =   "CRC Calculator"
       TextAlignment   =   0
       TextColor       =   colAppLabel
@@ -91,6 +101,7 @@ Begin WebPage WebPageCRCCalculator
    Begin WebLabel lapAppVersion
       Bold            =   False
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
       FontSize        =   0.0
@@ -107,8 +118,10 @@ Begin WebPage WebPageCRCCalculator
       LockTop         =   True
       LockVertical    =   False
       Multiline       =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   3
+      TabStop         =   True
       Text            =   "App Version"
       TextAlignment   =   0
       TextColor       =   &c000000FF
@@ -122,6 +135,7 @@ Begin WebPage WebPageCRCCalculator
    Begin WebLabel labThankYou
       Bold            =   False
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
       FontSize        =   9.0
@@ -138,8 +152,10 @@ Begin WebPage WebPageCRCCalculator
       LockTop         =   True
       LockVertical    =   False
       Multiline       =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   2
+      TabStop         =   True
       Text            =   "Would you like to say 'Thank you'?"
       TextAlignment   =   3
       TextColor       =   &c79797900
@@ -152,6 +168,7 @@ Begin WebPage WebPageCRCCalculator
    End
    Begin WebImageViewer imgPayPal
       ControlID       =   ""
+      CSSClasses      =   ""
       DisplayMode     =   0
       Enabled         =   True
       Height          =   26
@@ -166,9 +183,11 @@ Begin WebPage WebPageCRCCalculator
       LockRight       =   True
       LockTop         =   True
       LockVertical    =   False
+      PanelIndex      =   0
       Scope           =   2
       SVGData         =   ""
       TabIndex        =   5
+      TabStop         =   True
       Tooltip         =   "#constURL_Paypal"
       Top             =   44
       URL             =   ""
@@ -180,6 +199,7 @@ Begin WebPage WebPageCRCCalculator
    Begin WebLabel labContact
       Bold            =   False
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
       FontSize        =   9.0
@@ -196,8 +216,10 @@ Begin WebPage WebPageCRCCalculator
       LockTop         =   True
       LockVertical    =   False
       Multiline       =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   4
+      TabStop         =   True
       Text            =   "Contact"
       TextAlignment   =   3
       TextColor       =   colLinkLabel
@@ -213,6 +235,7 @@ Begin WebPage WebPageCRCCalculator
       AllowSpellChecking=   False
       Caption         =   ""
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       Height          =   80
       Hint            =   "Enter Input Data..."
@@ -227,9 +250,11 @@ Begin WebPage WebPageCRCCalculator
       LockTop         =   True
       LockVertical    =   False
       MaximumCharactersAllowed=   0
+      PanelIndex      =   0
       ReadOnly        =   False
       Scope           =   2
       TabIndex        =   6
+      TabStop         =   True
       Text            =   ""
       TextAlignment   =   0
       Tooltip         =   ""
@@ -240,10 +265,12 @@ Begin WebPage WebPageCRCCalculator
    End
    Begin WebSegmentedButton segCRCType
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       Height          =   38
       Index           =   -2147483648
       Indicator       =   0
+      LastSegmentIndex=   0
       Left            =   20
       LockBottom      =   False
       LockedInPosition=   True
@@ -252,12 +279,15 @@ Begin WebPage WebPageCRCCalculator
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      Outlined        =   False
+      PanelIndex      =   0
       Scope           =   2
       SegmentCount    =   0
       Segments        =   "CRC8\n\nFalse\rCRC16\n\nTrue\rCRC32\n\nFalse"
       SelectedSegmentIndex=   0
       SelectionStyle  =   1
       TabIndex        =   8
+      TabStop         =   True
       Tooltip         =   ""
       Top             =   205
       Visible         =   True
@@ -266,6 +296,7 @@ Begin WebPage WebPageCRCCalculator
    End
    Begin WebRadioGroup radOutputType
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       Height          =   60
       Horizontal      =   False
@@ -280,9 +311,11 @@ Begin WebPage WebPageCRCCalculator
       LockRight       =   True
       LockTop         =   True
       LockVertical    =   False
+      PanelIndex      =   0
       Scope           =   2
       SelectedIndex   =   0
       TabIndex        =   7
+      TabStop         =   True
       Tooltip         =   ""
       Top             =   190
       Visible         =   True
@@ -293,6 +326,7 @@ Begin WebPage WebPageCRCCalculator
    Begin WebLabel labOutput
       Bold            =   False
       ControlID       =   ""
+      CSSClasses      =   ""
       Enabled         =   True
       FontName        =   ""
       FontSize        =   0.0
@@ -309,8 +343,10 @@ Begin WebPage WebPageCRCCalculator
       LockTop         =   True
       LockVertical    =   False
       Multiline       =   False
+      PanelIndex      =   0
       Scope           =   2
       TabIndex        =   9
+      TabStop         =   True
       Text            =   "Output:"
       TextAlignment   =   3
       TextColor       =   &c000000FF
@@ -325,8 +361,13 @@ Begin WebPage WebPageCRCCalculator
       ColumnCount     =   1
       ColumnWidths    =   ""
       ControlID       =   ""
+      CSSClasses      =   ""
+      DefaultRowHeight=   49
       Enabled         =   True
+      GridLineStyle   =   3
+      HasBorder       =   True
       HasHeader       =   True
+      HeaderHeight    =   0
       Height          =   222
       HighlightSortedColumn=   False
       Index           =   -2147483648
@@ -344,6 +385,7 @@ Begin WebPage WebPageCRCCalculator
       LockTop         =   True
       LockVertical    =   False
       NoRowsMessage   =   ""
+      PanelIndex      =   0
       ProcessingMessage=   ""
       RowCount        =   0
       RowSelectionType=   1
@@ -352,6 +394,7 @@ Begin WebPage WebPageCRCCalculator
       SelectedRowColor=   &c0272D300
       SelectedRowIndex=   0
       TabIndex        =   10
+      TabStop         =   True
       Tooltip         =   ""
       Top             =   258
       Visible         =   True
@@ -578,7 +621,7 @@ End
 	#tag EndEvent
 	#tag Event
 		Sub Opening()
-		  me.Style.BorderColor = colAppLabel
+		  Me.Style.BorderColor = colAppLabel
 		  Me.SelectedSegmentIndex = 1
 		End Sub
 	#tag EndEvent
@@ -615,6 +658,22 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="PanelIndex"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Integer"
+		EditorType=""
+	#tag EndViewProperty
+	#tag ViewProperty
+		Name="ScaleFactor"
+		Visible=false
+		Group="Behavior"
+		InitialValue=""
+		Type="Double"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="ControlCount"
 		Visible=false
