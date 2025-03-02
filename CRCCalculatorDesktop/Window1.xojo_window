@@ -10,14 +10,14 @@ Begin DesktopWindow Window1
    HasFullScreenButton=   True
    HasMaximizeButton=   True
    HasMinimizeButton=   True
-   Height          =   445
+   Height          =   420
    ImplicitInstance=   True
    MacProcID       =   0
    MaximumHeight   =   32000
    MaximumWidth    =   32000
    MenuBar         =   653176831
    MenuBarVisible  =   True
-   MinimumHeight   =   445
+   MinimumHeight   =   420
    MinimumWidth    =   540
    Resizeable      =   True
    Title           =   "CRC Calculator"
@@ -94,7 +94,7 @@ Begin DesktopWindow Window1
       HasHorizontalScrollbar=   False
       HasVerticalScrollbar=   True
       HeadingIndex    =   -1
-      Height          =   200
+      Height          =   190
       Index           =   -2147483648
       InitialParent   =   ""
       InitialValue    =   ""
@@ -119,72 +119,6 @@ Begin DesktopWindow Window1
       Width           =   500
       _ScrollOffset   =   0
       _ScrollWidth    =   -1
-   End
-   Begin DesktopLabel labCompareLink
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   30
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   152
-      LockBottom      =   True
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   True
-      LockTop         =   False
-      Multiline       =   False
-      Scope           =   2
-      Selectable      =   False
-      TabIndex        =   14
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "https://crccalc.com/"
-      TextAlignment   =   0
-      TextColor       =   &c00000000
-      Tooltip         =   ""
-      Top             =   410
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   368
-   End
-   Begin DesktopLabel labCompareTitle
-      AllowAutoDeactivate=   True
-      Bold            =   False
-      Enabled         =   True
-      FontName        =   "System"
-      FontSize        =   0.0
-      FontUnit        =   0
-      Height          =   30
-      Index           =   -2147483648
-      InitialParent   =   ""
-      Italic          =   False
-      Left            =   20
-      LockBottom      =   True
-      LockedInPosition=   True
-      LockLeft        =   True
-      LockRight       =   False
-      LockTop         =   False
-      Multiline       =   False
-      Scope           =   2
-      Selectable      =   False
-      TabIndex        =   13
-      TabPanelIndex   =   0
-      TabStop         =   True
-      Text            =   "Compare Results:"
-      TextAlignment   =   0
-      TextColor       =   &c00000000
-      Tooltip         =   ""
-      Top             =   410
-      Transparent     =   False
-      Underline       =   False
-      Visible         =   True
-      Width           =   120
    End
    Begin DesktopLabel labOutputType
       AllowAutoDeactivate=   True
@@ -561,8 +495,6 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC16()
-		  labCompareLink.Tooltip = "https://crccalc.com/?crc=" + EncodeURLComponent(Self.CalcValue) + "&method=crc16&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
-		  
 		  Dim iRow As Integer = 0
 		  for each oCRCCalculator As CRC16Calculator in eoCRC16Calculators
 		    If (iRow <= (lstResult.RowCount - 1)) Then
@@ -598,8 +530,6 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC32()
-		  labCompareLink.Tooltip = "https://crccalc.com/?crc=" + EncodeURLComponent(self.CalcValue) + "&method=crc32&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
-		  
 		  Dim iRow As Integer = 0
 		  for each oCRCCalculator As CRC32Calculator in eoCRC32Calculators
 		    if (iRow <= (lstResult.RowCount - 1)) then
@@ -635,8 +565,6 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC8()
-		  labCompareLink.Tooltip = "https://crccalc.com/?crc=" + EncodeURLComponent(self.CalcValue) + "&method=crc8&datatype=ascii&outtype=" + If(radOutputHex.Value, "hex", "dec")
-		  
 		  Dim iRow As Integer = 0
 		  for each oCRCCalculator As CRC8Calculator in eoCRC8Calculators
 		    if (iRow <= (lstResult.RowCount - 1)) then
@@ -776,39 +704,6 @@ End
 		  g.Bold = (column <= 1)
 		  return false 'let Listbox handle the actual drawing
 		End Function
-	#tag EndEvent
-#tag EndEvents
-#tag Events labCompareLink
-	#tag Event
-		Sub MouseUp(x As Integer, y As Integer)
-		  if (x >= 0) and (x <= me.Width) and (y >= 0) and (y <= me.Height) then
-		    System.GotoURL(me.Tooltip)
-		  end if
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Function MouseDown(x As Integer, y As Integer) As Boolean
-		  #pragma unused X
-		  #pragma unused Y
-		  
-		  return true
-		End Function
-	#tag EndEvent
-	#tag Event
-		Sub MouseEnter()
-		  me.MouseCursor = System.Cursors.FingerPointer
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub MouseExit()
-		  me.MouseCursor = nil
-		End Sub
-	#tag EndEvent
-	#tag Event
-		Sub Opening()
-		  me.TextColor = Color.RGB(25,130,210)
-		  me.Underline = true
-		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events radOutputHex
