@@ -800,6 +800,16 @@ End
 		End Sub
 	#tag EndEvent
 #tag EndEvents
+#tag Events labThanks
+	#tag Event
+		Sub Opening()
+		  #If TargetLinux Then
+		    Me.FontName = "SmallSystem"
+		  #EndIf
+		  
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events labAppVersion
 	#tag Event
 		Sub Opening()
