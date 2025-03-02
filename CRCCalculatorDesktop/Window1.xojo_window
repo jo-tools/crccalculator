@@ -495,7 +495,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC16()
-		  Dim iRow As Integer = 0
+		  Var iRow As Integer = 0
 		  for each oCRCCalculator As CRC16Calculator in eoCRC16Calculators
 		    If (iRow <= (lstResult.RowCount - 1)) Then
 		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
@@ -530,7 +530,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC32()
-		  Dim iRow As Integer = 0
+		  Var iRow As Integer = 0
 		  for each oCRCCalculator As CRC32Calculator in eoCRC32Calculators
 		    if (iRow <= (lstResult.RowCount - 1)) then
 		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
@@ -565,7 +565,7 @@ End
 
 	#tag Method, Flags = &h21
 		Private Sub ShowResults_CRC8()
-		  Dim iRow As Integer = 0
+		  Var iRow As Integer = 0
 		  for each oCRCCalculator As CRC8Calculator in eoCRC8Calculators
 		    if (iRow <= (lstResult.RowCount - 1)) then
 		      lstResult.CellTextAt(iRow, 0) = oCRCCalculator.Caption
@@ -668,7 +668,7 @@ End
 		Function PaintCellBackground(g As Graphics, row As Integer, column As Integer) As Boolean
 		  #pragma unused column
 		  
-		  Dim oBGColor As Color
+		  Var oBGColor As Color
 		  
 		  If Me.RowSelectedAt(row) Then
 		    oBGColor = Color.HighlightColor
