@@ -2,7 +2,7 @@
 Protected Class CRC16Calculator
 	#tag Method, Flags = &h0
 		Function Caption() As String
-		  return esAlgorithm
+		  Return esAlgorithm
 		End Function
 	#tag EndMethod
 
@@ -23,7 +23,7 @@ Protected Class CRC16Calculator
 		  ebRefOut = pbRefOut
 		  eiXorOut = piXorOut
 		  
-		  me.CRC_BuildTable()
+		  Me.CRC_BuildTable()
 		End Sub
 	#tag EndMethod
 
@@ -54,88 +54,88 @@ Protected Class CRC16Calculator
 		  Var mb As MemoryBlock = psValue
 		  
 		  Var bTemp As Byte
-		  Var crc As UInt16 = me.Init
+		  Var crc As UInt16 = Me.Init
 		  
 		  Var curbyte As UInt8
 		  For i As Integer = 0 To mb.Size-1
 		    curbyte = mb.UInt8Value(i)
-		    If me.RefIn Then curbyte = Reflect8(curbyte)
+		    If Me.RefIn Then curbyte = Reflect8(curbyte)
 		    
 		    bTemp = Bitwise.BitXor(Bitwise.ShiftRight(crc, 8), curbyte)
 		    crc = Bitwise.BitXor(Bitwise.ShiftLeft(crc,8), eaCRCTable(bTemp))
 		  Next
 		  
-		  If me.RefOut Then crc = Reflect16(crc)
+		  If Me.RefOut Then crc = Reflect16(crc)
 		  
-		  Return Bitwise.BitXor(crc, me.XorOut)
+		  Return Bitwise.BitXor(crc, Me.XorOut)
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Shared Function CreateByType(piType As CRC16Type) As CRC16Calculator
-		  select case piType
-		  case CRC16Type.ARC
-		    return New CRC16Calculator("CRC-16/ARC", &h8005, &h0000, true, true, &h0000)
-		  case CRC16Type.AUG_CCITT
-		    return New CRC16Calculator("CRC-16/AUG-CCITT", &h1021, &h1D0F, false, false, &h0000)
-		  case CRC16Type.BUYPASS
-		    return New CRC16Calculator("CRC-16/BUYPASS", &h8005, &h0000, false, false, &h0000)
-		  case CRC16Type.CCITT_FALSE
-		    return New CRC16Calculator("CRC-16/CCITT-FALSE", &h1021, &hffff, false, false, &h0000)
-		  case CRC16Type.CDMA2000
-		    return New CRC16Calculator("CRC-16/CDMA2000", &hC867, &hffff, false, false, &h0000)
-		  case CRC16Type.DDS_110
-		    return New CRC16Calculator("CRC-16/DDS-110", &h8005, &h800D, false, false, &h0000)
-		  case CRC16Type.DECT_R
-		    return New CRC16Calculator("CRC-16/DECT-R", &h0589, &h0000, false, false, &h0001)
-		  case CRC16Type.DECT_X
-		    return New CRC16Calculator("CRC-16/DECT-X", &h0589, &h0000, false, false, &h0000)
-		  case CRC16Type.DNP
-		    return New CRC16Calculator("CRC-16/DNP", &h3d65, &h0000, true, true, &hffff)
-		  case CRC16Type.EN_13757
-		    return New CRC16Calculator("CRC-16/EN-13757", &h3d65, &h0000, false, false, &hffff)
-		  case CRC16Type.GENIBUS
-		    return New CRC16Calculator("CRC-16/GENIBUS", &h1021, &hffff, false, false, &hffff)
-		  case CRC16Type.MAXIM
-		    return New CRC16Calculator("CRC-16/MAXIM", &h8005, &h0000, true, true, &hffff)
-		  case CRC16Type.MCRF4XX
-		    return New CRC16Calculator("CRC-16/MCRF4XX", &h1021, &hffff, true, true, &h0000)
-		  case CRC16Type.RIELLO
-		    return New CRC16Calculator("CRC-16/RIELLO", &h1021, &hb2aa, true, true, &h0000)
-		  case CRC16Type.T10_DIF
-		    return New CRC16Calculator("CRC-16/T10-DIF", &h8bb7, &h0000, false, false, &h0000)
-		  case CRC16Type.TELEDISK
-		    return New CRC16Calculator("CRC-16/TELEDISK", &ha097, &h0000, false, false, &h0000)
-		  case CRC16Type.TMS37157
-		    return New CRC16Calculator("CRC-16/TMS37157", &h1021, &h89ec, true, true, &h0000)
-		  case CRC16Type.USB
-		    return New CRC16Calculator("CRC-16/USB", &h8005, &hffff, true, true, &hffff)
-		  case CRC16Type.A
-		    return New CRC16Calculator("CRC-16/A", &h1021, &hc6c6, true, true, &h0000)
-		  case CRC16Type.KERMIT
-		    return New CRC16Calculator("CRC-16/KERMIT", &h1021, &h0000, true, true, &h0000)
-		  case CRC16Type.MODBUS
-		    return New CRC16Calculator("CRC-16/MODBUS", &h8005, &hffff, true, true, &h0000)
-		  case CRC16Type.X_25
-		    return New CRC16Calculator("CRC-16/X-25", &h1021, &hffff, true, true, &hffff)
-		  case CRC16Type.XMODEM
-		    return New CRC16Calculator("CRC-16/XMODEM", &h1021, &h0000, false, false, &h0000)
-		  end select
+		  Select Case piType
+		  Case CRC16Type.ARC
+		    Return New CRC16Calculator("CRC-16/ARC", &h8005, &h0000, True, True, &h0000)
+		  Case CRC16Type.AUG_CCITT
+		    Return New CRC16Calculator("CRC-16/AUG-CCITT", &h1021, &h1D0F, False, False, &h0000)
+		  Case CRC16Type.BUYPASS
+		    Return New CRC16Calculator("CRC-16/BUYPASS", &h8005, &h0000, False, False, &h0000)
+		  Case CRC16Type.CCITT_FALSE
+		    Return New CRC16Calculator("CRC-16/CCITT-FALSE", &h1021, &hffff, False, False, &h0000)
+		  Case CRC16Type.CDMA2000
+		    Return New CRC16Calculator("CRC-16/CDMA2000", &hC867, &hffff, False, False, &h0000)
+		  Case CRC16Type.DDS_110
+		    Return New CRC16Calculator("CRC-16/DDS-110", &h8005, &h800D, False, False, &h0000)
+		  Case CRC16Type.DECT_R
+		    Return New CRC16Calculator("CRC-16/DECT-R", &h0589, &h0000, False, False, &h0001)
+		  Case CRC16Type.DECT_X
+		    Return New CRC16Calculator("CRC-16/DECT-X", &h0589, &h0000, False, False, &h0000)
+		  Case CRC16Type.DNP
+		    Return New CRC16Calculator("CRC-16/DNP", &h3d65, &h0000, True, True, &hffff)
+		  Case CRC16Type.EN_13757
+		    Return New CRC16Calculator("CRC-16/EN-13757", &h3d65, &h0000, False, False, &hffff)
+		  Case CRC16Type.GENIBUS
+		    Return New CRC16Calculator("CRC-16/GENIBUS", &h1021, &hffff, False, False, &hffff)
+		  Case CRC16Type.MAXIM
+		    Return New CRC16Calculator("CRC-16/MAXIM", &h8005, &h0000, True, True, &hffff)
+		  Case CRC16Type.MCRF4XX
+		    Return New CRC16Calculator("CRC-16/MCRF4XX", &h1021, &hffff, True, True, &h0000)
+		  Case CRC16Type.RIELLO
+		    Return New CRC16Calculator("CRC-16/RIELLO", &h1021, &hb2aa, True, True, &h0000)
+		  Case CRC16Type.T10_DIF
+		    Return New CRC16Calculator("CRC-16/T10-DIF", &h8bb7, &h0000, False, False, &h0000)
+		  Case CRC16Type.TELEDISK
+		    Return New CRC16Calculator("CRC-16/TELEDISK", &ha097, &h0000, False, False, &h0000)
+		  Case CRC16Type.TMS37157
+		    Return New CRC16Calculator("CRC-16/TMS37157", &h1021, &h89ec, True, True, &h0000)
+		  Case CRC16Type.USB
+		    Return New CRC16Calculator("CRC-16/USB", &h8005, &hffff, True, True, &hffff)
+		  Case CRC16Type.A
+		    Return New CRC16Calculator("CRC-16/A", &h1021, &hc6c6, True, True, &h0000)
+		  Case CRC16Type.KERMIT
+		    Return New CRC16Calculator("CRC-16/KERMIT", &h1021, &h0000, True, True, &h0000)
+		  Case CRC16Type.MODBUS
+		    Return New CRC16Calculator("CRC-16/MODBUS", &h8005, &hffff, True, True, &h0000)
+		  Case CRC16Type.X_25
+		    Return New CRC16Calculator("CRC-16/X-25", &h1021, &hffff, True, True, &hffff)
+		  Case CRC16Type.XMODEM
+		    Return New CRC16Calculator("CRC-16/XMODEM", &h1021, &h0000, False, False, &h0000)
+		  End Select
 		  
-		  return nil
+		  Return Nil
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Init() As UInt16
-		  return eiInit
+		  Return eiInit
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Poly() As UInt16
-		  return eiPoly
+		  Return eiPoly
 		End Function
 	#tag EndMethod
 
@@ -165,25 +165,25 @@ Protected Class CRC16Calculator
 		  oCRCCalculators.Add(CRC16Calculator.CreateByType(CRC16Type.MODBUS))
 		  oCRCCalculators.Add(CRC16Calculator.CreateByType(CRC16Type.X_25))
 		  oCRCCalculators.Add(CRC16Calculator.CreateByType(CRC16Type.XMODEM))
-		  return oCRCCalculators
+		  Return oCRCCalculators
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function RefIn() As Boolean
-		  return ebRefIn
+		  Return ebRefIn
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Function Reflect16(piValue As UInt16) As UInt16
 		  Var resVal As UInt16
-		  for i As UInt8 = 0 to 15
-		    if (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) then
+		  For i As UInt8 = 0 To 15
+		    If (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) Then
 		      resVal = Bitwise.BitOr(resVal, Bitwise.ShiftLeft(1,15-i))
-		    end if
-		  next
-		  return resVal
+		    End If
+		  Next
+		  Return resVal
 		  
 		End Function
 	#tag EndMethod
@@ -191,31 +191,31 @@ Protected Class CRC16Calculator
 	#tag Method, Flags = &h21
 		Private Function Reflect8(piValue As UInt8) As Uint8
 		  Var resVal As UInt8
-		  for i As UInt8 = 0 to 7
-		    if (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) then
+		  For i As UInt8 = 0 To 7
+		    If (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) Then
 		      resVal = Bitwise.BitOr(resVal, Bitwise.ShiftLeft(1,7-i))
-		    end if
-		  next
-		  return resVal
+		    End If
+		  Next
+		  Return resVal
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function RefOut() As Boolean
-		  return ebRefOut
+		  Return ebRefOut
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Result(psValue As String) As UInt16
-		  return me.CRC_CalcResult(psValue)
+		  Return Me.CRC_CalcResult(psValue)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function UInt16_AsDec(piValue As UInt16) As String
-		  return Format(piValue, "00000")
+		  Return Format(piValue, "00000")
 		End Function
 	#tag EndMethod
 
@@ -225,14 +225,14 @@ Protected Class CRC16Calculator
 		  Const constHexFormat = "0000"
 		  
 		  Var sVal As String = constHexFormat + Hex(piValue)
-		  return constHexPrefix + sVal.Right(4)
+		  Return constHexPrefix + sVal.Right(4)
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function XorOut() As UInt16
-		  return eiXorOut
+		  Return eiXorOut
 		End Function
 	#tag EndMethod
 

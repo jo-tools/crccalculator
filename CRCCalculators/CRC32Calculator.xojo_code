@@ -2,7 +2,7 @@
 Protected Class CRC32Calculator
 	#tag Method, Flags = &h0
 		Function Caption() As String
-		  return esAlgorithm
+		  Return esAlgorithm
 		End Function
 	#tag EndMethod
 
@@ -23,7 +23,7 @@ Protected Class CRC32Calculator
 		  ebRefOut = pbRefOut
 		  eiXorOut = piXorOut
 		  
-		  me.CRC_BuildTable()
+		  Me.CRC_BuildTable()
 		End Sub
 	#tag EndMethod
 
@@ -31,11 +31,11 @@ Protected Class CRC32Calculator
 		Private Sub CRC_BuildTable()
 		  //http://www.sunshine2k.de/articles/coding/crc/understanding_crc.html
 		  
-		  Redim eaCRCTable(-1)
-		  Dim generator As UInt32 = Me.Poly
+		  eaCRCTable.ResizeTo(-1)
+		  Var generator As UInt32 = Me.Poly
 		  
 		  For divident As Integer = 0 To 255
-		    Dim curbyte As UInt32 = Bitwise.ShiftLeft(divident,24)
+		    Var curbyte As UInt32 = Bitwise.ShiftLeft(divident,24)
 		    For bit As UInt8 = 0 To 7
 		      If (Bitwise.BitAnd(curbyte, &h80000000) <> 0) Then
 		        curbyte = Bitwise.ShiftLeft(curbyte,1)
@@ -44,137 +44,137 @@ Protected Class CRC32Calculator
 		        curbyte = Bitwise.ShiftLeft(curbyte,1)
 		      End If
 		    Next
-		    eaCRCTable.Append(curbyte)
+		    eaCRCTable.Add(curbyte)
 		  Next
 		End Sub
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Function CRC_CalcResult(psValue As String) As UInt32
-		  Dim mb As MemoryBlock = psValue
+		  Var mb As MemoryBlock = psValue
 		  
-		  Dim bTemp As Byte
-		  Dim crc As UInt32 = me.Init
+		  Var bTemp As Byte
+		  Var crc As UInt32 = Me.Init
 		  
-		  Dim curbyte As UInt8
+		  Var curbyte As UInt8
 		  For i As Integer = 0 To mb.Size-1
 		    curbyte = mb.UInt8Value(i)
-		    If me.RefIn Then curbyte = Reflect8(curbyte)
+		    If Me.RefIn Then curbyte = Reflect8(curbyte)
 		    
 		    bTemp = Bitwise.ShiftRight(Bitwise.BitXor(crc,Bitwise.ShiftLeft(curbyte,24)), 24)
 		    crc = Bitwise.BitXor(Bitwise.ShiftLeft(crc,8), eaCRCTable(bTemp))
 		  Next
 		  
-		  If me.RefOut Then crc = Reflect32(crc)
+		  If Me.RefOut Then crc = Reflect32(crc)
 		  
-		  Return Bitwise.BitXor(crc, me.XorOut)
+		  Return Bitwise.BitXor(crc, Me.XorOut)
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Shared Function CreateByType(piType As CRC32Type) As CRC32Calculator
-		  select case piType
-		  case CRC32Type.CRC32
-		    return New CRC32Calculator("CRC-32", &h04C11DB7, &hFFFFFFFF, true, true, &hFFFFFFFF)
-		  case CRC32Type.BZIP2
-		    return New CRC32Calculator("CRC-32/BZIP2", &h04C11DB7, &hFFFFFFFF, false, false, &hFFFFFFFF)
-		  case CRC32Type.C
-		    return New CRC32Calculator("CRC-32C", &h1EDC6F41, &hFFFFFFFF, true, true, &hFFFFFFFF)
-		  case CRC32Type.D
-		    return New CRC32Calculator("CRC-32D", &hA833982B, &hFFFFFFFF, true, true, &hFFFFFFFF)
-		  case CRC32Type.MPEG_2
-		    return New CRC32Calculator("CRC-32/MPEG-2", &h04C11DB7, &hFFFFFFFF, false, false, &h00000000)
-		  case CRC32Type.POSIX
-		    return New CRC32Calculator("CRC-32/POSIX", &h04C11DB7, &h00000000, false, false, &hFFFFFFFF)
-		  case CRC32Type.Q
-		    return New CRC32Calculator("CRC-32Q", &h814141AB, &h00000000, false, false, &h00000000)
-		  case CRC32Type.JAMCRC
-		    return New CRC32Calculator("CRC-32/JAMCRC", &h04C11DB7, &hFFFFFFFF, true, true, &h00000000)
-		  case CRC32Type.XFER
-		    return New CRC32Calculator("CRC-32/XFER", &h000000AF, &h00000000, false, false, &h00000000)
+		  Select Case piType
+		  Case CRC32Type.CRC32
+		    Return New CRC32Calculator("CRC-32", &h04C11DB7, &hFFFFFFFF, True, True, &hFFFFFFFF)
+		  Case CRC32Type.BZIP2
+		    Return New CRC32Calculator("CRC-32/BZIP2", &h04C11DB7, &hFFFFFFFF, False, False, &hFFFFFFFF)
+		  Case CRC32Type.C
+		    Return New CRC32Calculator("CRC-32C", &h1EDC6F41, &hFFFFFFFF, True, True, &hFFFFFFFF)
+		  Case CRC32Type.D
+		    Return New CRC32Calculator("CRC-32D", &hA833982B, &hFFFFFFFF, True, True, &hFFFFFFFF)
+		  Case CRC32Type.MPEG_2
+		    Return New CRC32Calculator("CRC-32/MPEG-2", &h04C11DB7, &hFFFFFFFF, False, False, &h00000000)
+		  Case CRC32Type.POSIX
+		    Return New CRC32Calculator("CRC-32/POSIX", &h04C11DB7, &h00000000, False, False, &hFFFFFFFF)
+		  Case CRC32Type.Q
+		    Return New CRC32Calculator("CRC-32Q", &h814141AB, &h00000000, False, False, &h00000000)
+		  Case CRC32Type.JAMCRC
+		    Return New CRC32Calculator("CRC-32/JAMCRC", &h04C11DB7, &hFFFFFFFF, True, True, &h00000000)
+		  Case CRC32Type.XFER
+		    Return New CRC32Calculator("CRC-32/XFER", &h000000AF, &h00000000, False, False, &h00000000)
 		    
-		  end select
+		  End Select
 		  
-		  return nil
+		  Return Nil
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Init() As UInt32
-		  return eiInit
+		  Return eiInit
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Poly() As UInt32
-		  return eiPoly
+		  Return eiPoly
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Shared Function PredefinedCalculators() As CRC32Calculator()
-		  Dim oCRCCalculators() As CRC32Calculator
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.CRC32))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.BZIP2))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.C))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.D))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.MPEG_2))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.POSIX))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.Q))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.JAMCRC))
-		  oCRCCalculators.Append(CRC32Calculator.CreateByType(CRC32Type.XFER))
-		  return oCRCCalculators
+		  Var oCRCCalculators() As CRC32Calculator
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.CRC32))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.BZIP2))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.C))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.D))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.MPEG_2))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.POSIX))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.Q))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.JAMCRC))
+		  oCRCCalculators.Add(CRC32Calculator.CreateByType(CRC32Type.XFER))
+		  Return oCRCCalculators
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function RefIn() As Boolean
-		  return ebRefIn
+		  Return ebRefIn
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Function Reflect32(piValue As UInt32) As UInt32
-		  Dim resVal As UInt32
-		  for i As UInt8 = 0 to 31
-		    if (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) then
+		  Var resVal As UInt32
+		  For i As UInt8 = 0 To 31
+		    If (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) Then
 		      resVal = Bitwise.BitOr(resVal, Bitwise.ShiftLeft(1,31-i))
-		    end if
-		  next
-		  return resVal
+		    End If
+		  Next
+		  Return resVal
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
 		Private Function Reflect8(piValue As UInt8) As Uint8
-		  Dim resVal As UInt8
-		  for i As UInt8 = 0 to 7
-		    if (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) then
+		  Var resVal As UInt8
+		  For i As UInt8 = 0 To 7
+		    If (Bitwise.BitAnd(piValue, Bitwise.ShiftLeft(1,i)) <> 0) Then
 		      resVal = Bitwise.BitOr(resVal, Bitwise.ShiftLeft(1,7-i))
-		    end if
-		  next
-		  return resVal
+		    End If
+		  Next
+		  Return resVal
 		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function RefOut() As Boolean
-		  return ebRefOut
+		  Return ebRefOut
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function Result(psValue As String) As UInt32
-		  return me.CRC_CalcResult(psValue)
+		  Return Me.CRC_CalcResult(psValue)
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function UInt32_AsDec(piValue As UInt32) As String
-		  return Format(piValue, "0000000000")
+		  Return Format(piValue, "0000000000")
 		End Function
 	#tag EndMethod
 
@@ -183,13 +183,15 @@ Protected Class CRC32Calculator
 		  Const constHexPrefix = "0x"
 		  Const constHexFormat = "00000000"
 		  
-		  return constHexPrefix + Right(constHexFormat + Hex(piValue), 8)
+		  Var sVal As String = constHexFormat + Hex(piValue)
+		  Return constHexPrefix + sVal.Right(8)
+		  
 		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
 		Function XorOut() As UInt32
-		  return eiXorOut
+		  Return eiXorOut
 		End Function
 	#tag EndMethod
 
@@ -247,7 +249,9 @@ Protected Class CRC32Calculator
 			Name="Name"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Index"
@@ -255,12 +259,15 @@ Protected Class CRC32Calculator
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
+			InitialValue=""
 			Type="String"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -268,6 +275,7 @@ Protected Class CRC32Calculator
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
@@ -275,6 +283,7 @@ Protected Class CRC32Calculator
 			Group="Position"
 			InitialValue="0"
 			Type="Integer"
+			EditorType=""
 		#tag EndViewProperty
 	#tag EndViewBehavior
 End Class

@@ -42,7 +42,7 @@
 					End If
 					
 					'Check Stage Code
-					Dim sStageCodeInfo As String
+					Var sStageCodeInfo As String
 					Select Case PropertyValue("App.StageCode")
 					Case "0" 'Development
 					sStageCodeInfo = "-dev"
@@ -55,7 +55,7 @@
 					End Select
 					
 					'Check Build Target
-					Dim sTGZFilename As String
+					Var sTGZFilename As String
 					Select Case CurrentBuildTarget
 					Case 4 'Linux (Intel, 32Bit)
 					sTGZFilename = "CRCCalculator" + sStageCodeInfo + "_Linux_Intel_32Bit.tgz"
@@ -70,13 +70,13 @@
 					End Select
 					
 					'Xojo Project Settings
-					Dim sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
-					If Right(sPROJECT_PATH, 1) = "/" Then
+					Var sPROJECT_PATH As String = DoShellCommand("echo $PROJECT_PATH", 0).Trim
+					If sPROJECT_PATH.Right(1) = "/" Then
 					'no trailing /
-					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
+					sPROJECT_PATH = sPROJECT_PATH.Middle(1, sPROJECT_PATH.Length - 1)
 					End If
-					Dim sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
-					Dim sBUILD_APPNAME As String = CurrentBuildAppName
+					Var sBUILD_LOCATION As String = CurrentBuildLocation.ReplaceAll("\", "") 'don't escape Path
+					Var sBUILD_APPNAME As String = CurrentBuildAppName
 					
 					If (sPROJECT_PATH = "") Then
 					Print "Xojo PostBuild Script CreateTGZ requires to get the Environment Variable $PROJECT_PATH from the Xojo IDE." + EndOfLine + EndOfLine + "Unfortunately, it's empty.... try again after re-launching the Xojo IDE and/or rebooting your machine."
@@ -84,10 +84,10 @@
 					End If
 					
 					'Create .tgz
-					Dim pathParts() As String = Split(sBUILD_LOCATION, "/")
-					Dim foldernameApp As String = pathParts(pathParts.Ubound)
-					pathParts.Remove(pathParts.Ubound)
-					Dim baseFolder As String = Join(pathParts, "/")
+					Var pathParts() As String = sBUILD_LOCATION.Split("/")
+					Var foldernameApp As String = pathParts(pathParts.LastIndex)
+					pathParts.RemoveAt(pathParts.LastIndex)
+					Var baseFolder As String = String.FromArray(pathParts, "/")
 					
 					Call DoShellCommand("cd """ + baseFolder + """ && tar -c -z -v --no-mac-metadata --no-xattrs -f ../" + sTGZFilename + " ./" + foldernameApp, 0)
 					
@@ -146,7 +146,7 @@
 					'Note: Error creating MultiArch Images
 					'https://github.com/docker/for-win/issues/14011
 					'Try re-setting qemu. Execute this in Terminal:
-					'docker run --rm --privileged multiarch/qemu-user-Static --reset -p yes -c yes 
+					'docker run --rm --privileged multiarch/qemu-user-Static --reset -p yes -c yes
 					'This should effectively pull multiarch/qemu-user-Static, re-setup qemu-user-Static With :latest
 					'to be properly installed and configured
 					'**************************************************
@@ -202,12 +202,12 @@
 					End If
 					
 					'Xojo Project Settings
-					Var sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
-					If Right(sPROJECT_PATH, 1) = "/" Then
+					Var sPROJECT_PATH As String = DoShellCommand("echo $PROJECT_PATH", 0).Trim
+					If sPROJECT_PATH.Right(1) = "/" Then
 					'no trailing /
-					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
+					sPROJECT_PATH = sPROJECT_PATH.Middle(1, sPROJECT_PATH.Length - 1)
 					End If
-					Var sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
+					Var sBUILD_LOCATION As String = CurrentBuildLocation.ReplaceAll("\", "") 'don't escape Path
 					Var sBUILD_APPNAME As String = CurrentBuildAppName
 					
 					If (sPROJECT_PATH = "") Then
@@ -272,6 +272,7 @@
 				End
 				Begin SignProjectStep Sign
 				  DeveloperID=
+				  macOSEntitlements={"App Sandbox":"False","Hardened Runtime":"False","Notarize":"False","UserEntitlements":""}
 				End
 			End
 			Begin BuildStepList Windows
@@ -296,7 +297,7 @@
 					End If
 					
 					'Check Stage Code
-					Dim sStageCodeInfo As String
+					Var sStageCodeInfo As String
 					Select Case PropertyValue("App.StageCode")
 					Case "0" 'Development
 					sStageCodeInfo = "-dev"
@@ -309,7 +310,7 @@
 					End Select
 					
 					'Check Build Target
-					Dim sZIPFilename As String
+					Var sZIPFilename As String
 					Select Case CurrentBuildTarget
 					Case 3 'Windows (Intel, 32Bit)
 					sZIPFilename = "CRCCalculator" + sStageCodeInfo + "_Windows_Intel_32Bit.zip"
@@ -322,13 +323,13 @@
 					End Select
 					
 					'Xojo Project Settings
-					Dim sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
-					If Right(sPROJECT_PATH, 1) = "/" Then
+					Var sPROJECT_PATH As String = DoShellCommand("echo $PROJECT_PATH", 0).Trim
+					If sPROJECT_PATH.Right(1) = "/" Then
 					'no trailing /
-					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
+					sPROJECT_PATH = sPROJECT_PATH.Middle(1, sPROJECT_PATH.Length - 1)
 					End If
-					Dim sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
-					Dim sBUILD_APPNAME As String = CurrentBuildAppName
+					Var sBUILD_LOCATION As String = CurrentBuildLocation.ReplaceAll("\", "") 'don't escape Path
+					Var sBUILD_APPNAME As String = CurrentBuildAppName
 					
 					If (sPROJECT_PATH = "") Then
 					Print "Xojo PostBuild Script CreateZIP requires to get the Environment Variable $PROJECT_PATH from the Xojo IDE." + EndOfLine + EndOfLine + "Unfortunately, it's empty.... try again after re-launching the Xojo IDE and/or rebooting your machine."
@@ -336,10 +337,10 @@
 					End If
 					
 					'Create .zip
-					Dim pathParts() As String = Split(sBUILD_LOCATION, "/")
-					Dim foldernameApp As String = pathParts(pathParts.Ubound)
-					pathParts.Remove(pathParts.Ubound)
-					Dim baseFolder As String = Join(pathParts, "/")
+					Var pathParts() As String = sBUILD_LOCATION.Split("/")
+					Var foldernameApp As String = pathParts(pathParts.LastIndex)
+					pathParts.RemoveAt(pathParts.LastIndex)
+					Var baseFolder As String = String.FromArray(pathParts, "/")
 					
 					Call DoShellCommand("cd """ + baseFolder + """ && zip -r ../" + sZIPFilename + " ./" + foldernameApp, 0)
 					
