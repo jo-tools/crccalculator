@@ -32,7 +32,6 @@ Begin WebPage WebPageCRCCalculator
    _ImplicitInstance=   False
    _mDesignHeight  =   0
    _mDesignWidth   =   0
-   _mName          =   ""
    _mPanelIndex    =   -1
    Begin WebImageViewer imgAppIcon
       ControlID       =   ""
@@ -188,7 +187,7 @@ Begin WebPage WebPageCRCCalculator
       SVGData         =   ""
       TabIndex        =   5
       TabStop         =   True
-      Tooltip         =   "#constURL_Paypal"
+      Tooltip         =   "#kURL_Paypal"
       Top             =   44
       URL             =   ""
       Visible         =   True
@@ -223,7 +222,7 @@ Begin WebPage WebPageCRCCalculator
       Text            =   "Contact"
       TextAlignment   =   3
       TextColor       =   colLinkLabel
-      Tooltip         =   "#constURL_Contact"
+      Tooltip         =   "#kEmail_Contact"
       Top             =   44
       Underline       =   True
       Visible         =   True
@@ -560,10 +559,10 @@ End
 	#tag EndProperty
 
 
-	#tag Constant, Name = constURL_Contact, Type = String, Dynamic = False, Default = \"mailto:xojo@jo-tools.ch", Scope = Private
+	#tag Constant, Name = kEmail_Contact, Type = String, Dynamic = False, Default = \"xojo@jo-tools.ch", Scope = Private
 	#tag EndConstant
 
-	#tag Constant, Name = constURL_Paypal, Type = String, Dynamic = False, Default = \"https://paypal.me/jotools", Scope = Private
+	#tag Constant, Name = kURL_Paypal, Type = String, Dynamic = False, Default = \"https://paypal.me/jotools", Scope = Private
 	#tag EndConstant
 
 
@@ -587,14 +586,14 @@ End
 		  #Pragma Unused x
 		  #Pragma Unused y
 		  
-		  Session.GoToURL(constURL_Paypal)
+		  Session.GoToURL(kURL_Paypal)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
 #tag Events labContact
 	#tag Event
 		Sub Pressed()
-		  Session.GoToURL(constURL_Contact)
+		  Session.GoToURL("mailto:" + kEmail_Contact)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
