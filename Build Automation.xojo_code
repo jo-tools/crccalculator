@@ -70,12 +70,12 @@
 					End Select
 					
 					'Xojo Project Settings
-					Var sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
-					If Right(sPROJECT_PATH, 1) = "/" Then
+					Var sPROJECT_PATH As String = DoShellCommand("echo $PROJECT_PATH", 0).Trim
+					If sPROJECT_PATH.Right(1) = "/" Then
 					'no trailing /
-					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
+					sPROJECT_PATH = sPROJECT_PATH.Middle(1, sPROJECT_PATH.Length - 1)
 					End If
-					Var sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
+					Var sBUILD_LOCATION As String = CurrentBuildLocation.ReplaceAll("\", "") 'don't escape Path
 					Var sBUILD_APPNAME As String = CurrentBuildAppName
 					
 					If (sPROJECT_PATH = "") Then
@@ -84,10 +84,10 @@
 					End If
 					
 					'Create .tgz
-					Var pathParts() As String = Split(sBUILD_LOCATION, "/")
-					Var foldernameApp As String = pathParts(pathParts.Ubound)
-					pathParts.Remove(pathParts.Ubound)
-					Var baseFolder As String = Join(pathParts, "/")
+					Var pathParts() As String = sBUILD_LOCATION.Split("/")
+					Var foldernameApp As String = pathParts(pathParts.LastIndex)
+					pathParts.RemoveAt(pathParts.LastIndex)
+					Var baseFolder As String = String.FromArray(pathParts, "/")
 					
 					Call DoShellCommand("cd """ + baseFolder + """ && tar -c -z -v --no-mac-metadata --no-xattrs -f ../" + sTGZFilename + " ./" + foldernameApp, 0)
 					
@@ -202,12 +202,12 @@
 					End If
 					
 					'Xojo Project Settings
-					Var sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
-					If Right(sPROJECT_PATH, 1) = "/" Then
+					Var sPROJECT_PATH As String = DoShellCommand("echo $PROJECT_PATH", 0).Trim
+					If sPROJECT_PATH.Right(1) = "/" Then
 					'no trailing /
-					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
+					sPROJECT_PATH = sPROJECT_PATH.Middle(1, sPROJECT_PATH.Length - 1)
 					End If
-					Var sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
+					Var sBUILD_LOCATION As String = CurrentBuildLocation.ReplaceAll("\", "") 'don't escape Path
 					Var sBUILD_APPNAME As String = CurrentBuildAppName
 					
 					If (sPROJECT_PATH = "") Then
@@ -323,12 +323,12 @@
 					End Select
 					
 					'Xojo Project Settings
-					Var sPROJECT_PATH As String = Trim(DoShellCommand("echo $PROJECT_PATH", 0))
-					If Right(sPROJECT_PATH, 1) = "/" Then
+					Var sPROJECT_PATH As String = DoShellCommand("echo $PROJECT_PATH", 0).Trim
+					If sPROJECT_PATH.Right(1) = "/" Then
 					'no trailing /
-					sPROJECT_PATH = Mid(sPROJECT_PATH, 1, Len(sPROJECT_PATH)-1)
+					sPROJECT_PATH = sPROJECT_PATH.Middle(1, sPROJECT_PATH.Length - 1)
 					End If
-					Var sBUILD_LOCATION As String = ReplaceAll(CurrentBuildLocation, "\", "") 'don't escape Path
+					Var sBUILD_LOCATION As String = CurrentBuildLocation.ReplaceAll("\", "") 'don't escape Path
 					Var sBUILD_APPNAME As String = CurrentBuildAppName
 					
 					If (sPROJECT_PATH = "") Then
@@ -337,10 +337,10 @@
 					End If
 					
 					'Create .zip
-					Var pathParts() As String = Split(sBUILD_LOCATION, "/")
-					Var foldernameApp As String = pathParts(pathParts.Ubound)
-					pathParts.Remove(pathParts.Ubound)
-					Var baseFolder As String = Join(pathParts, "/")
+					Var pathParts() As String = sBUILD_LOCATION.Split("/")
+					Var foldernameApp As String = pathParts(pathParts.LastIndex)
+					pathParts.RemoveAt(pathParts.LastIndex)
+					Var baseFolder As String = String.FromArray(pathParts, "/")
 					
 					Call DoShellCommand("cd """ + baseFolder + """ && zip -r ../" + sZIPFilename + " ./" + foldernameApp, 0)
 					
