@@ -1,26 +1,5 @@
 #tag BuildAutomation
 			Begin BuildStepList Linux
-				Begin IDEScriptBuildStep EnableWebBuildDockerImage , AppliesTo = 0, Architecture = 0, Target = 0
-					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
-					'Xojo 2018r4 can't compile the Post Build Script (API2) which builds a DockerImage for the Web 2 Project.
-					'So make sure it's only being activated when needed:
-					'- Only when Building the CRCCalculatorWeb project
-					'- Only when Building with Xojo 2021r3 (and newer)
-					
-					If XojoVersion < 2021.03 Then
-					If PropertyValue("WebBuildDockerImage.Applies to") <> "3" Then
-					PropertyValue("WebBuildDockerImage.Applies to") = "3" 'None
-					End If
-					Return
-					End If
-					
-					If (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") Then Return
-					
-					
-					If PropertyValue("WebBuildDockerImage.Applies to") <> "2" Then
-					PropertyValue("WebBuildDockerImage.Applies to") = "2" 'Release
-					End If
-				End
 				Begin BuildProjectStep Build
 				End
 				Begin IDEScriptBuildStep CreateTGZ , AppliesTo = 2, Architecture = 0, Target = 0
@@ -133,15 +112,10 @@
 					End If
 					
 				End
-				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 3, Architecture = 0, Target = 0
+				Begin IDEScriptBuildStep WebBuildDockerImage , AppliesTo = 2, Architecture = 0, Target = 0
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
 					'So make sure this script is only being run when needed:
 					If (PropertyValue("App.InternalName") <> "CRCCalculatorWeb") Then Return
-					
-					'Reset, so that saving the project has our desired default setting
-					If PropertyValue("WebBuildDockerImage.Applies to") <> "3" Then
-					PropertyValue("WebBuildDockerImage.Applies to") = "3" 'None
-					End If
 					
 					'*************************************************************
 					'Xojo Web App 2 Docker - How to use with your Xojo-built .app?
@@ -313,7 +287,6 @@
 				End
 				Begin SignProjectStep Sign
 				  DeveloperID=
-				  macOSEntitlements={"App Sandbox":"False","Hardened Runtime":"False","Notarize":"False","UserEntitlements":""}
 				End
 				Begin IDEScriptBuildStep Xojo2DMG , AppliesTo = 0, Architecture = 0, Target = 0
 					'This is a MonoRepo with multiple Projects (which therefore share the Build Automation steps).
