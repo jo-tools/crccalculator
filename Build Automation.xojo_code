@@ -506,7 +506,7 @@
 					'               once .json required files are found: expect Docker and codesign to work
 					'               use this e.g. in Open Source projects so that your builds will be codesigned,
 					'               but if others are building the project it won't show messages to them
-					Var bSILENT As Boolean = False 'in this example project we want to show if it's not going to work
+					Var bSILENT As Boolean = True
 					
 					'Check Build Target
 					Select Case CurrentBuildTarget
