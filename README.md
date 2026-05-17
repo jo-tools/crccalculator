@@ -27,7 +27,7 @@ Built Web application running on macOS:
 [Xojo](https://www.xojo.com/) is a rapid application development for Desktop, Web, Mobile & Raspberry Pi.  
 
 The Desktop application Xojo example project `CRCCalculatorDesktop.xojo_project` and the Web application Xojo example project `CRCCalculatorWeb.xojo_project` are using:
-- Xojo 2024r4.2
+- Xojo 2026r1.2
 - API 2
 
 ### How to use in your own Xojo project?
