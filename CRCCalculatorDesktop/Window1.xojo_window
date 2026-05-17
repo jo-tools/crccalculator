@@ -10,6 +10,7 @@ Begin DesktopWindow Window1
    HasFullScreenButton=   True
    HasMaximizeButton=   True
    HasMinimizeButton=   True
+   HasTitleBar     =   True
    Height          =   420
    ImplicitInstance=   True
    MacProcID       =   0
@@ -446,7 +447,7 @@ Begin DesktopWindow Window1
       Top             =   180
       Transparent     =   False
       Visible         =   True
-      Width           =   163
+      Width           =   175
    End
 End
 #tag EndDesktopWindow
@@ -908,6 +909,14 @@ End
 	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
+	#tag ViewProperty
+		Name="HasTitleBar"
+		Visible=true
+		Group="Frame"
+		InitialValue="True"
+		Type="Boolean"
+		EditorType=""
+	#tag EndViewProperty
 	#tag ViewProperty
 		Name="MinimumWidth"
 		Visible=true

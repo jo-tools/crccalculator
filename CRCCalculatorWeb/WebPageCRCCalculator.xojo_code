@@ -71,6 +71,7 @@ Begin WebPage WebPageCRCCalculator
       FontName        =   ""
       FontSize        =   0.0
       Height          =   25
+      HTMLElement     =   0
       Index           =   -2147483648
       Indicator       =   0
       Italic          =   False
@@ -105,6 +106,7 @@ Begin WebPage WebPageCRCCalculator
       FontName        =   ""
       FontSize        =   0.0
       Height          =   25
+      HTMLElement     =   0
       Index           =   -2147483648
       Indicator       =   0
       Italic          =   False
@@ -139,6 +141,7 @@ Begin WebPage WebPageCRCCalculator
       FontName        =   ""
       FontSize        =   10.0
       Height          =   24
+      HTMLElement     =   0
       Index           =   -2147483648
       Indicator       =   0
       Italic          =   False
@@ -203,6 +206,7 @@ Begin WebPage WebPageCRCCalculator
       FontName        =   ""
       FontSize        =   10.0
       Height          =   26
+      HTMLElement     =   0
       Index           =   -2147483648
       Indicator       =   0
       Italic          =   False
@@ -302,6 +306,7 @@ Begin WebPage WebPageCRCCalculator
       Index           =   -2147483648
       Indicator       =   0
       InitialValue    =   "Hex\nDec"
+      LastAddedIndex  =   0
       Left            =   700
       LockBottom      =   False
       LockedInPosition=   True
@@ -330,6 +335,7 @@ Begin WebPage WebPageCRCCalculator
       FontName        =   ""
       FontSize        =   0.0
       Height          =   30
+      HTMLElement     =   0
       Index           =   -2147483648
       Indicator       =   0
       Italic          =   False
@@ -357,6 +363,7 @@ Begin WebPage WebPageCRCCalculator
       _mPanelIndex    =   -1
    End
    Begin WebListBox lstResult
+      AllowRowReordering=   False
       ColumnCount     =   1
       ColumnWidths    =   ""
       ControlID       =   ""
@@ -458,18 +465,18 @@ End
 		    Var iRow As Integer = lstResult.LastAddedRowIndex
 		    
 		    If (radOutputType.SelectedIndex = 0) Then
-		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Poly))
-		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Init))
-		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.XorOut))
+		      lstResult.CellRendererAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellRendererAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Poly))
+		      lstResult.CellRendererAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.Init))
+		      lstResult.CellRendererAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsHex(oCRCCalculator.XorOut))
 		    Else
-		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Poly))
-		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Init))
-		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.XorOut))
+		      lstResult.CellRendererAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellRendererAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Poly))
+		      lstResult.CellRendererAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.Init))
+		      lstResult.CellRendererAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt16_AsDec(oCRCCalculator.XorOut))
 		    End If
-		    lstResult.CellTextAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
-		    lstResult.CellTextAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
+		    lstResult.CellRendererAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
+		    lstResult.CellRendererAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
 		    
 		  Next
 		End Sub
@@ -493,18 +500,18 @@ End
 		    Var iRow As Integer = lstResult.LastAddedRowIndex
 		    
 		    If (radOutputType.SelectedIndex = 0) Then
-		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Poly))
-		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Init))
-		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.XorOut))
+		      lstResult.CellRendererAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellRendererAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Poly))
+		      lstResult.CellRendererAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.Init))
+		      lstResult.CellRendererAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsHex(oCRCCalculator.XorOut))
 		    Else
-		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Poly))
-		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Init))
-		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.XorOut))
+		      lstResult.CellRendererAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellRendererAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Poly))
+		      lstResult.CellRendererAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.Init))
+		      lstResult.CellRendererAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt32_AsDec(oCRCCalculator.XorOut))
 		    End If
-		    lstResult.CellTextAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
-		    lstResult.CellTextAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
+		    lstResult.CellRendererAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
+		    lstResult.CellRendererAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
 		    
 		  Next
 		End Sub
@@ -528,18 +535,18 @@ End
 		    Var iRow As Integer = lstResult.LastAddedRowIndex
 		    
 		    If (radOutputType.SelectedIndex = 0) Then
-		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Poly))
-		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Init))
-		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.XorOut))
+		      lstResult.CellRendererAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellRendererAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Poly))
+		      lstResult.CellRendererAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.Init))
+		      lstResult.CellRendererAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsHex(oCRCCalculator.XorOut))
 		    Else
-		      lstResult.CellTextAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Result(Me.CalcValue)))
-		      lstResult.CellTextAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Poly))
-		      lstResult.CellTextAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Init))
-		      lstResult.CellTextAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.XorOut))
+		      lstResult.CellRendererAt(iRow, 1) = New WebListBoxStyleRenderer(styleBold, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Result(Me.CalcValue)))
+		      lstResult.CellRendererAt(iRow, 2) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Poly))
+		      lstResult.CellRendererAt(iRow, 3) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.Init))
+		      lstResult.CellRendererAt(iRow, 6) = New WebListBoxStyleRenderer(style, oCRCCalculator.UInt8_AsDec(oCRCCalculator.XorOut))
 		    End If
-		    lstResult.CellTextAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
-		    lstResult.CellTextAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
+		    lstResult.CellRendererAt(iRow, 4) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefIn))
+		    lstResult.CellRendererAt(iRow, 5) = New WebListBoxStyleRenderer(style, Str(oCRCCalculator.RefOut))
 		    
 		  Next
 		End Sub
